@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:12 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/05 16:43:41 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/05 17:23:57 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ void	push_to_b(t_data *data)
 
 void	push(t_data *data, char p)
 {
-	//Ajouter des verifs
-	if (p == 'a')
+	if (p == 'a' && data->pile_b)
 		push_to_a(data);
-	else if (p == 'b')
+	else if (p == 'b' && data->pile_a)
 		push_to_b(data);
+	else
+		printf("Impossible de push\n");
 }

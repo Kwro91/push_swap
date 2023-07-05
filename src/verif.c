@@ -6,11 +6,26 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:21:25 by besalort          #+#    #+#             */
-/*   Updated: 2023/05/03 18:44:26 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/05 17:12:07 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_count_pile(t_lst *pile)
+{
+	int		count;
+	t_lst	*tmp;
+
+	count = 0;
+	tmp = pile;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		count++;
+	}
+	return (count);
+}
 
 int	is_double_in_lst(t_data *data)
 {

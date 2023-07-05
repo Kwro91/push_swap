@@ -31,6 +31,7 @@ void	swap(t_data	*data, char p);
 // LOAD.C
 void	load(t_data *data, int ac, char **av);
 // VERIF.C
+int	ft_count_pile(t_lst *pile);
 int	is_double_in_lst(t_data *data);
 int	is_sort(t_data *data);
 int	verif(t_data *data);

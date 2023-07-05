@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:15 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/05 16:31:37 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/05 17:23:42 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ void	rotate_b(t_data *data)
 
 void	rotate(t_data *data, char p)
 {
-	//Ajouter des verifs
-	if (p == 'a')
+	if (p == 'a' && (ft_count_pile(data->pile_a) > 1))
 		rotate_a(data);
-	else if (p == 'b')
+	else if (p == 'b' && (ft_count_pile(data->pile_b) > 1))
 		rotate_b(data);
+	else
+		printf("Impossible de rotate\n");
 }
