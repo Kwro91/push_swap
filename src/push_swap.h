@@ -21,11 +21,13 @@ typedef struct s_data
 t_lst	*create_elements(int size, char **elements, int indice);
 void	push_swap(int ac, char **av);
 // PUSH.C
-t_lst	*push(t_lst *pile, t_lst *element);
+void	push(t_data *data, char p);
+// REVERSE_ROTATE.C
+void    reverse_rotate(t_data *data, char p);
 // ROTATE.C
-void	rotate(t_lst *pile);
+void	rotate(t_data *data, char p);
 //SWAP.C
-void	swap(t_lst	*pile);
+void	swap(t_data	*data, char p);
 // LOAD.C
 void	load(t_data *data, int ac, char **av);
 // VERIF.C

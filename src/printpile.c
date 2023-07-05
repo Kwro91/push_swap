@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:41:59 by besalort          #+#    #+#             */
-/*   Updated: 2023/05/03 17:44:57 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:50:26 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 void	printpile(t_data *data)
 {
+	t_lst	*tmp;
+	t_lst	*tmpb;
+	tmp = data->pile_a;
 	ft_printf("Voici la pile A:\n");
-	while (data->pile_a)
+	while (tmp)
 	{
-		ft_printf("%i\n", data->pile_a->value);
-		data->pile_a = data->pile_a->next;
+		ft_printf("%i\n", tmp->value);
+		tmp = tmp->next;
 	}
 	ft_printf("Voici la pile B:\n");
-	while (data->pile_b)
+	tmpb = data->pile_b;
+	while (tmpb)
 	{
-		ft_printf("%i\n", data->pile_b->value);
-		data->pile_b = data->pile_b->next;
+		ft_printf("%i\n", tmpb->value);
+		tmpb = tmpb->next;
 	}
 }

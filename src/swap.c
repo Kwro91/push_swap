@@ -6,22 +6,39 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:28 by besalort          #+#    #+#             */
-/*   Updated: 2023/05/03 18:46:09 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:40:05 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_lst	*pile)
+void	swap_a(t_data *data)
 {
 	int	value;
 	t_lst	*second;
 
-	value = pile->value;
-	second = pile->next;
-	pile->value = second->value;
+	value = data->pile_a->value;
+	second = data->pile_a->next;
+	data->pile_a->value = second->value;
 	second->value = value;
 }
 
-// REVOIR CAR PLUSIEURS PROBLEMES (J'ai inverse les piles a l'interieur visiblement (envoie du a vers le b) mais le resultat est inverse lorsque je print)
-// AUTRE PROBLEME JE PUSH A LA FIN AU LIEU DU DEBUT DE LA PILE (PTN T'ES CON LOL)
+void	swap_b(t_data *data)
+{
+	int	value;
+	t_lst	*second;
+
+	value = data->pile_b->value;
+	second = data->pile_b->next;
+	data->pile_b->value = second->value;
+	second->value = value;
+}
+
+void	swap(t_data	*data, char p)
+{
+	//Ajouter des verifs
+	if (p == 'a')
+		swap_a(data);
+	else if (p == 'b')
+		swap_b(data);
+}

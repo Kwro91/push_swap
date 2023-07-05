@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/05/03 18:46:02 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:43:11 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	algo(t_data *data)
 {
-	//(void)data;
-	data->pile_b = push(data->pile_a, data->pile_b); 
+	// reverse_rotate(data, 'a');
+	// rotate(data, 'a');
+	// push(data, 'b');
+	// swap(data, 'a');
 }

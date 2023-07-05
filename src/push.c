@@ -6,33 +6,49 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:12 by besalort          #+#    #+#             */
-/*   Updated: 2023/05/03 18:41:14 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:43:41 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_lst	*push(t_lst *element, t_lst *pile_to)
+void	push_to_a(t_data *data)
 {
-	t_lst	*last;
-	t_lst	*pile_from;
+	t_lst *element;
 
-	if (element->next)
-		pile_from = element->next;
+	element = data->pile_b;
+	if (!element->next)
+		data->pile_b = NULL;
 	else
-		pile_from = NULL;
-	if (pile_to)
-	{
-		last = pile_to;
-		while (last->next)
-			last = last->next;
-		last->next = element;
-		element->next = NULL;		
-	}
+		data->pile_b = data->pile_b->next;
+	if (data->pile_a)
+		element->next = data->pile_a;
 	else
-	{
-		pile_to = element;
-		pile_to->next = NULL;
-	}
-	return (pile_from);
+		element->next = NULL;
+	data->pile_a = element;
+}
+
+void	push_to_b(t_data *data)
+{
+	t_lst *element;
+
+	element = data->pile_a;
+	if (!element->next)
+		data->pile_a = NULL;
+	else
+		data->pile_a = data->pile_a->next;
+	if (data->pile_b)
+		element->next = data->pile_b;
+	else
+		element->next = NULL;
+	data->pile_b = element;
+}
+
+void	push(t_data *data, char p)
+{
+	//Ajouter des verifs
+	if (p == 'a')
+		push_to_a(data);
+	else if (p == 'b')
+		push_to_b(data);
 }

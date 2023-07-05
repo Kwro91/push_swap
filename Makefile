@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 16:14:38 by besalort          #+#    #+#              #
-#    Updated: 2023/05/03 18:46:53 by besalort         ###   ########.fr        #
+#    Updated: 2023/07/05 16:29:13 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = push_swap
 
 SRC = ./src/push_swap.c \
 	./src/swap.c \
+	./src/reverse_rotate.c \
 	./src/rotate.c \
 	./src/push.c \
 	./src/load.c \
