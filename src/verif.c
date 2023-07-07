@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:21:25 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/05 17:12:07 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:44:17 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,26 @@ int	is_sort(t_data *data)
 			element = element->next;
 		}
 		check = check->next;
+	}
+	return (1);
+}
+
+int	ft_is_only_number(char **av)
+{
+	int		i;
+	int		j;
+
+	i = 1;
+	while (av[i])
+	{
+		j= 0;
+		while (av[i][j])
+		{
+			if (ft_isdigit(av[i][j]) == 0)
+				return (-1);
+			j++;
+		}
+		i++;
 	}
 	return (1);
 }

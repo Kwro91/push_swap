@@ -34,6 +34,7 @@ void	load(t_data *data, int ac, char **av);
 int	ft_count_pile(t_lst *pile);
 int	is_double_in_lst(t_data *data);
 int	is_sort(t_data *data);
+int	ft_is_only_number(char **av);
 int	verif(t_data *data);
 // ALGO.C
 void	algo(t_data *data);

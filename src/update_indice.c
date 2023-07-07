@@ -1,29 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   update_indice.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/07 18:44:39 by besalort         ###   ########.fr       */
+/*   Created: 2023/07/07 16:21:27 by besalort          #+#    #+#             */
+/*   Updated: 2023/07/07 16:28:15 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	algo_3case(t_data *data)
+void	ft_update_indice_a(t_data *data)
 {
-	(void)data;
+	t_lst	*tmp;
+	int		i;
+
+	tmp = data->pile_a;
+	i = 0;
+	while (tmp)
+	{
+		tmp.indice = i;
+		i++;
+		tmp = tmp->next;
+	}
 }
 
-void	algo(t_data *data)
+void	ft_update_indice_b(t_data *data)
 {
-	printf("Il y a %i elements dans la pile a\n", ft_count_pile(data->pile_a));
-	printf("Il y a %i elements dans la pile b\n", ft_count_pile(data->pile_b));
-	
-	// reverse_rotate(data, 'a');
-	// rotate(data, 'a');
-	// push(data, 'b');
-	// swap(data, 'a');
+		t_lst	*tmp;
+	int		i;
+
+	tmp = data->pile_b;
+	i = 0;
+	while (tmp)
+	{
+		tmp.indice = i;
+		i++;
+		tmp = tmp->next;
+	}
+}
+
+void	ft_update_indice(t_data *data)
+{
+	ft_update_indice_a(data);
+	ft_update_indice_b(data);
 }

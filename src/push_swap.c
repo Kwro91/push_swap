@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:38 by besalort          #+#    #+#             */
-/*   Updated: 2023/05/03 18:18:57 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:46:18 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ void	push_swap(int ac, char **av)
 	t_data	data;
 	
 	data = (t_data){};
+	if (ft_is_only_number(av) == -1) // + BESOINS DE VERIF QUE TOUT LES NOMBRES SONT BIEN COMPRIS DANS UN INT
+	{
+		ft_printf("Invalid values, please put only numbers\n");
+		return ;
+	}
 	load(&data, ac, av);
 	if (verif(&data) == -1)
 	{
