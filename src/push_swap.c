@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:38 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/07 18:46:18 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:28:45 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ t_lst	*create_elements(int size, char **elements, int indice)
 	if (size > 0)
 	{
 		element = malloc(sizeof(t_lst));
-		if  (!element)
+		if (!element)
 			return (NULL);
 		element->indice = indice;
 		element->value = ft_atoi(elements[0]);
 		element->next = create_elements(size - 1, &elements[1], indice + 1);
 		if (element->next == NULL && (size -1) > 0)
-			return	(free(element), NULL);
+			return (free(element), NULL);
 	}
 	return (element);
 }
@@ -34,7 +34,7 @@ t_lst	*create_elements(int size, char **elements, int indice)
 void	push_swap(int ac, char **av)
 {
 	t_data	data;
-	
+
 	data = (t_data){};
 	if (ft_is_only_number(av) == -1) // + BESOINS DE VERIF QUE TOUT LES NOMBRES SONT BIEN COMPRIS DANS UN INT
 	{
@@ -51,7 +51,7 @@ void	push_swap(int ac, char **av)
 	printpile(&data); // CECI EST UNIQUEMENT POUR LES TESTS !!!
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac >= 3)
 		push_swap(ac, av);

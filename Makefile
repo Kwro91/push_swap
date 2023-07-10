@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 16:14:38 by besalort          #+#    #+#              #
-#    Updated: 2023/07/05 16:29:13 by besalort         ###   ########.fr        #
+#    Updated: 2023/07/10 17:19:47 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ SRC = ./src/push_swap.c \
 	./src/verif.c \
 	./src/printpile.c \
 	./src/algo.c \
+	./src/algo_bis.c \
+	./src/algo_re-order.c \
+	./src/update_indice.c \
 	
 	
 LIBFT_PATH = ./src/libft/

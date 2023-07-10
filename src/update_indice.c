@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:21:27 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/07 16:28:15 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:30:14 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_update_indice_a(t_data *data)
 	i = 0;
 	while (tmp)
 	{
-		tmp.indice = i;
+		tmp->indice = i;
 		i++;
 		tmp = tmp->next;
 	}
@@ -29,14 +29,14 @@ void	ft_update_indice_a(t_data *data)
 
 void	ft_update_indice_b(t_data *data)
 {
-		t_lst	*tmp;
+	t_lst	*tmp;
 	int		i;
 
 	tmp = data->pile_b;
 	i = 0;
 	while (tmp)
 	{
-		tmp.indice = i;
+		tmp->indice = i;
 		i++;
 		tmp = tmp->next;
 	}

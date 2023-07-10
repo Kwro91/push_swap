@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:15 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/05 17:23:42 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:43:18 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rotate_a(t_data *data)
 
 	element = data->pile_a;
 	last = data->pile_a;
-	while(last->next)
+	while (last->next)
 		last = last->next;
 	data->pile_a = data->pile_a->next;
 	element->next = NULL;
@@ -33,7 +33,7 @@ void	rotate_b(t_data *data)
 
 	element = data->pile_b;
 	last = data->pile_b;
-	while(last->next)
+	while (last->next)
 		last = last->next;
 	data->pile_b = data->pile_b->next;
 	element->next = NULL;
@@ -42,10 +42,11 @@ void	rotate_b(t_data *data)
 
 void	rotate(t_data *data, char p)
 {
+	ft_printf("r%c\n", p);
 	if (p == 'a' && (ft_count_pile(data->pile_a) > 1))
 		rotate_a(data);
 	else if (p == 'b' && (ft_count_pile(data->pile_b) > 1))
 		rotate_b(data);
 	else
-		printf("Impossible de rotate\n");
+		ft_printf("Impossible de rotate\n");
 }

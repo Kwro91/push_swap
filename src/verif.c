@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:21:25 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/07 18:44:17 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:39:23 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	ft_count_pile(t_lst *pile)
 
 int	is_double_in_lst(t_data *data)
 {
-	t_lst 	*element;
+	t_lst	*element;
 	t_lst	*check;
-	
+
 	check = data->pile_a;
 	while (check->next)
 	{
@@ -51,9 +51,9 @@ int	is_double_in_lst(t_data *data)
 
 int	is_sort(t_data *data)
 {
-	t_lst 	*element;
+	t_lst	*element;
 	t_lst	*check;
-	
+
 	check = data->pile_a;
 	while (check->next)
 	{
@@ -79,7 +79,7 @@ int	ft_is_only_number(char **av)
 	i = 1;
 	while (av[i])
 	{
-		j= 0;
+		j = 0;
 		while (av[i][j])
 		{
 			if (ft_isdigit(av[i][j]) == 0)

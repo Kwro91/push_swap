@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
+/*   Updated: 2023/07/10 17:39:45 by besalort         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef _PUSH_SWAP_H_
-# define _PUSH_SWAP_H_
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "./libft/libft.h"
+# include "./libft/libft.h"
 
 typedef struct s_lst
 {
-	int 	value;
+	int		value;
 	int		indice;
 	void	*next;
 }	t_lst;
@@ -23,7 +34,7 @@ void	push_swap(int ac, char **av);
 // PUSH.C
 void	push(t_data *data, char p);
 // REVERSE_ROTATE.C
-void    reverse_rotate(t_data *data, char p);
+void	reverse_rotate(t_data *data, char p);
 // ROTATE.C
 void	rotate(t_data *data, char p);
 //SWAP.C
@@ -31,14 +42,28 @@ void	swap(t_data	*data, char p);
 // LOAD.C
 void	load(t_data *data, int ac, char **av);
 // VERIF.C
-int	ft_count_pile(t_lst *pile);
-int	is_double_in_lst(t_data *data);
-int	is_sort(t_data *data);
-int	ft_is_only_number(char **av);
-int	verif(t_data *data);
+int		ft_count_pile(t_lst *pile);
+int		is_double_in_lst(t_data *data);
+int		is_sort(t_data *data);
+int		ft_is_only_number(char **av);
+int		verif(t_data *data);
+// ALGO_RE-ORDER.C
+void	put_right_order(t_data *data, t_lst *pile, char c);
+// ALGO_BIS.C
+int		ft_compare(t_lst *first, t_lst *second);
+int		is_pile_sort(t_lst *pile);
+void	sort_one_element(t_data *data, t_lst *pile, char c);
 // ALGO.C
 void	algo(t_data *data);
-
-////////// POUR LES TESTS UNIQUEMENT !!! PENSER A ENLEVER LE FICHIER PRINTPILE ///////
+void	algo_3case(t_data *data);
+// UPDATE_INDICE.C
+void	ft_update_indice(t_data *data);
+//
+//
+//
+//
 void	printpile(t_data *data);
+//
+//
+//
 #endif

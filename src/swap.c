@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:28 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/05 17:23:36 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:41:36 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap_a(t_data *data)
 {
-	int	value;
+	int		value;
 	t_lst	*second;
 
 	value = data->pile_a->value;
@@ -25,7 +25,7 @@ void	swap_a(t_data *data)
 
 void	swap_b(t_data *data)
 {
-	int	value;
+	int		value;
 	t_lst	*second;
 
 	value = data->pile_b->value;
@@ -36,10 +36,11 @@ void	swap_b(t_data *data)
 
 void	swap(t_data	*data, char p)
 {
+	ft_printf("s%c\n", p);
 	if (p == 'a' && (ft_count_pile(data->pile_a) > 1))
 		swap_a(data);
 	else if (p == 'b' && (ft_count_pile(data->pile_b) > 1))
 		swap_b(data);
 	else
-		printf("Impossible de swap\n");
+		ft_printf("Impossible de swap\n");
 }
