@@ -6,42 +6,47 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:45:22 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/10 17:41:22 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:52:21 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_count_for_rotate_case(t_lst *pile)
+int	ft_count_for_reverse(t_lst *pile, int save)
 {
-	int		save;
-	int		count_start;
-	int		count_end;
 	t_lst	*tmp;
-
-	tmp = pile;
-	save = tmp->value;
+	int 	count_start;
+	
+	
 	count_start = 0;
-	count_end = 0;
-	while (tmp)
-	{
-		save = tmp->value;
+	tmp = pile;
+	while (tmp && tmp->value < save)
 		tmp = tmp->next;
-		count_end++;
-		if (tmp->value < save)
-			break ;
-	}
 	while (tmp)
 	{
 		count_start++;
 		tmp = tmp->next;
 	}
-	if (count_start >= count_end)
-		return (1);
-	return (2);
+	return count_start;
 }
 
-void	put_at_the_end(t_data *data, t_lst *pile, char c)
+int	ft_count_for_rotate(t_lst *pile, int save)
+{
+	int		count_end;
+	t_lst	*tmp;
+
+	tmp = pile;
+	count_end = 0;
+	while (tmp && tmp->value < save)
+	{
+		save = tmp->value;
+		tmp = tmp->next;
+		count_end++;
+	}
+	return count_end;
+}
+
+void	put_at_the_end(t_data *data, t_lst *pile, char c, int count)
 {
 	t_lst	*tmp;
 	t_lst	*last;
@@ -55,11 +60,11 @@ void	put_at_the_end(t_data *data, t_lst *pile, char c)
 		tmp = tmp->next;
 		rotate(data, c);
 	}
-	if (is_pile_sort(tmp) == 0)
-		put_at_the_end(data, tmp, c);
+	if (is_pile_sort(tmp) == 0 && count > 0)
+		put_at_the_end(data, tmp, c, count-1);
 }
 
-void	put_at_the_start(t_data *data, t_lst *pile, char c)
+void	put_at_the_start(t_data *data, t_lst *pile, char c, int count)
 {
 	t_lst	*tmp;
 
@@ -67,18 +72,23 @@ void	put_at_the_start(t_data *data, t_lst *pile, char c)
 	while (tmp->next)
 		tmp = tmp->next;
 	reverse_rotate(data, c);
-	if (is_pile_sort(tmp) == 0)
-		put_at_the_start(data, tmp, c);
+	if (is_pile_sort(tmp) == 0 && count > 0)
+		put_at_the_start(data, tmp, c, count-1);
 }
 
 void	put_right_order(t_data *data, t_lst *pile, char c)
 {
-	int	value;
+	int save;
+	int rotate;
+	int reverse;
 
-	value = 0;
-	value = ft_count_for_rotate_case(pile);
-	if (value == 1)
-		put_at_the_end(data, pile, c);
-	else if (value == 2)
-		put_at_the_start(data, pile, c);
+	rotate = 0;
+	reverse = 0;
+	save = pile->value;
+	rotate = ft_count_for_rotate(pile, save);
+	reverse = ft_count_for_reverse(pile, save);
+	if (rotate < reverse)
+		put_at_the_end(data, pile, c, rotate);
+	else
+		put_at_the_start(data, pile, c, reverse);
 }

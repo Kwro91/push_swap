@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:15 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/10 17:43:18 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:56:40 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,15 @@ void	rotate(t_data *data, char p)
 {
 	ft_printf("r%c\n", p);
 	if (p == 'a' && (ft_count_pile(data->pile_a) > 1))
+	{
 		rotate_a(data);
+		data->coups++;	
+	}
 	else if (p == 'b' && (ft_count_pile(data->pile_b) > 1))
+	{
 		rotate_b(data);
+		data->coups++;	
+	}
 	else
 		ft_printf("Impossible de rotate\n");
 }

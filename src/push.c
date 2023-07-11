@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:12 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/10 17:43:30 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:55:42 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,15 @@ void	push(t_data *data, char p)
 {
 	ft_printf("p%c\n", p);
 	if (p == 'a' && data->pile_b)
+	{
 		push_to_a(data);
+		data->coups++;
+	}
 	else if (p == 'b' && data->pile_a)
+	{
 		push_to_b(data);
+		data->coups++;
+	}
 	else
 		printf("Impossible de push\n");
 }

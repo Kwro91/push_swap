@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:41:59 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/10 17:27:22 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:54:48 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	printpile(t_data *data)
 		ft_printf("%i\n", tmpb->value);
 		tmpb = tmpb->next;
 	}
-	ft_printf("\n");
+	ft_printf("%i coups pour trier\n", data->coups);
 }

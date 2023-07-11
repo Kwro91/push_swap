@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 11:13:13 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/10 17:42:37 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:50:18 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	sort_one_element(t_data *data, t_lst *pile, char c)
 	cmp = pile->value;
 	if (is_pile_sort(pile) == 1 || is_lowest(pile) == 1)
 		return ;
-	if (is_highest(tmp) == 1)
+	if (is_highest(pile) == 1)
 	{
 		rotate(data, c);
 		return ;
