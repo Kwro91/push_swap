@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 11:13:13 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/11 15:50:18 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:20:29 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,30 +71,4 @@ int	is_lowest(t_lst *pile)
 		tmp = tmp->next;
 	}
 	return (1);
-}
-
-void	sort_one_element(t_data *data, t_lst *pile, char c)
-{
-	t_lst	*tmp;
-	int		cmp;
-
-	tmp = pile->next;
-	cmp = pile->value;
-	if (is_pile_sort(pile) == 1 || is_lowest(pile) == 1)
-		return ;
-	if (is_highest(pile) == 1)
-	{
-		rotate(data, c);
-		return ;
-	}
-	if (cmp < tmp->value)
-		return ;
-	else
-	{
-		swap(data, c);
-		if (is_pile_sort(pile) == 1)
-			return ;
-		rotate(data, c);
-		sort_one_element(data, tmp, c);
-	}
 }

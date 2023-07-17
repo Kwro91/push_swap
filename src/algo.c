@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/11 18:25:38 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:38:35 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,38 @@ void	algo_3case(t_data *data)
 		algo_3case(data);
 }
 
+void	algo_test(t_data *data)
+{
+	push(data, 'b');
+	push(data, 'b');
+	sort_one_element(data, data->pile_b, 'b');
+	while (ft_count_pile(data->pile_a) > 0)
+	{
+		push(data, 'b');
+		sort_one_element(data, data->pile_b, 'b');
+		printpile(data);
+		// while (is_pile_sort(data->pile_b) != 1)
+		// {
+		// 	// printf("Je me declenche\n");
+		// 	// printpile(data);
+		// 	put_right_order(data, data->pile_b, 'b');
+		// }
+	}
+}
+
 void	algo(t_data *data)
 {
 	int	elements;
 
 	elements = ft_count_pile(data->pile_a);
 	printf("Il y a %i elements dans la pile a\n", ft_count_pile(data->pile_a));
-	// printf("Il y a %i elements dans la pile b\n", ft_count_pile(data->pile_b));
+	if (elements == 2)
+		swap(data, 'a');
 	if (elements == 3)
 		algo_3case(data);
-	else if (elements <= 10)
-		algo_10case(data);
-	// reverse_rotate(data, 'a');
-	// rotate(data, 'a');
-	// push(data, 'b');
-	// swap(data, 'a');
+	else if (elements > 3)
+	{
+		// algo_10case(data);
+		algo_test(data);
+	}
 }

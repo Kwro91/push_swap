@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/11 18:17:51 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:47:18 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,16 @@ int		verif(t_data *data);
 void	put_right_order(t_data *data, t_lst *pile, char c);
 void	put_at_the_start(t_data *data, t_lst *pile, char c, int count);
 void	put_at_the_end(t_data *data, t_lst *pile, char c, int count);
+// ALGO_COUNT.C
+int		how_many_inf(t_lst *pile, int value);
+int		how_many_supp(t_lst *pile, int value);
+// ALGO_SORT_ELEMENT.C
+void	sort_one_element(t_data *data, t_lst *pile, char c);
 // ALGO_BIS.C
 int		ft_compare(t_lst *first, t_lst *second);
 int		is_pile_sort(t_lst *pile);
 int		is_highest(t_lst *pile);
 int		is_lowest(t_lst *pile);
-void	sort_one_element(t_data *data, t_lst *pile, char c);
 // ALGO.C
 void	algo(t_data *data);
 void	algo_3case(t_data *data);

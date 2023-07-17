@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 16:14:38 by besalort          #+#    #+#              #
-#    Updated: 2023/07/10 17:19:47 by besalort         ###   ########.fr        #
+#    Updated: 2023/07/17 16:43:32 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRC = ./src/push_swap.c \
 	./src/algo.c \
 	./src/algo_bis.c \
 	./src/algo_re-order.c \
+	./src/algo_sort_element.c \
+	./src/algo_count.c \
 	./src/update_indice.c \
 	
 	
