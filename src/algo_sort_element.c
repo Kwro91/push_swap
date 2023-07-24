@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:20:06 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/17 17:36:54 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:36:07 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_by_rotate(t_data *data, t_lst *pile, char c, int count)
 {
-	printf("Je me lance et il reste %i fois\n", count);
+	printf("sort by rotate et il reste %i fois\n", count);
 	if (count == 0)
 		return ;
 	swap(data, c);
@@ -31,6 +31,8 @@ void	sort_by_reverse_rotate(t_data *data, t_lst *pile, char c, int count)
 	swap(data, c);
 	sort_by_reverse_rotate(data, pile, c, count-1);
 	rotate(data, c);
+	if (count <= 1)
+		rotate(data, c);
 }
 
 void	rotate_or_reverse_rotate(t_data *data, t_lst *pile, char c)
