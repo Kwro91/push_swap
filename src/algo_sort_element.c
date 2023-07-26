@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:20:06 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/20 17:36:07 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:15:16 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_by_rotate(t_data *data, t_lst *pile, char c, int count)
 {
-	printf("sort by rotate et il reste %i fois\n", count);
+	// printf("sort by rotate et il reste %i fois\n", count);
 	if (count == 0)
 		return ;
 	swap(data, c);

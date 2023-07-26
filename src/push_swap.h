@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/20 18:40:13 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/26 23:41:24 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_lst
 
 typedef struct s_data
 {
+	int		*tab;
+	int		mediane;
 	int		coups;
 	t_lst	*pile_a;
 	t_lst	*pile_b;
@@ -42,6 +44,10 @@ void	rotate(t_data *data, char p);
 void	swap(t_data	*data, char p);
 // LOAD.C
 void	load(t_data *data, int ac, char **av);
+// MEDIANE.C
+void	create_tab(t_data *data, int count);
+void	sort_tab(t_data *data, int size);
+void	mediane(t_data *data, int nb);
 // VERIF.C
 int		ft_count_pile(t_lst *pile);
 int		is_double_in_lst(t_data *data);

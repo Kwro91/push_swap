@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/17 17:38:35 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/26 23:42:32 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	algo_test(t_data *data)
 	{
 		push(data, 'b');
 		sort_one_element(data, data->pile_b, 'b');
-		printpile(data);
+		// printpile(data);
 		// while (is_pile_sort(data->pile_b) != 1)
 		// {
 		// 	// printf("Je me declenche\n");
@@ -70,7 +70,9 @@ void	algo(t_data *data)
 	int	elements;
 
 	elements = ft_count_pile(data->pile_a);
-	printf("Il y a %i elements dans la pile a\n", ft_count_pile(data->pile_a));
+	printf("elements %i\n", elements);
+	mediane(data, elements);
+	// printf("Il y a %i elements dans la pile a\n", ft_count_pile(data->pile_a));
 	if (elements == 2)
 		swap(data, 'a');
 	if (elements == 3)
@@ -81,3 +83,9 @@ void	algo(t_data *data)
 		algo_test(data);
 	}
 }
+
+
+// void	algo_final(t_data *data)
+// {
+	
+// }
