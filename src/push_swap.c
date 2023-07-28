@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:38 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/28 16:28:55 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:33:57 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_lst	*create_elements(int size, char **elements, int indice)
 		if (!element)
 			return (NULL);
 		element->indice = indice;
-		element->sort = 0;
+		element->sort_indice = 0;
+		element->to_sort = 0;
 		element->value = ft_atoi(elements[0]);
 		element->next = create_elements(size - 1, &elements[1], indice + 1);
 		if (element->next == NULL && (size -1) > 0)
