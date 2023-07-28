@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/26 23:41:24 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/28 17:55:03 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct s_lst
 {
 	int		value;
 	int		indice;
+	int		sort_indice;
+	int		to_sort;
 	void	*next;
 }	t_lst;
 
@@ -74,6 +76,12 @@ void	algo_3case(t_data *data);
 void	algo_10case(t_data *data);
 // UPDATE_INDICE.C
 void	ft_update_indice(t_data *data);
+// ALGO_SORT_INDICE.C
+int 	which_highest(t_lst *pile);
+int 	which_lowest(t_lst *pile);
+int		indice_sort(t_data *data, int value);
+void	update_all_sort_indice(t_data *data);
+void	update_all_sort_time(t_data *data);
 //
 //
 //

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 22:44:01 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/26 23:46:24 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/28 16:04:59 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	sort_tab(t_data *data, int size)
 	int		j;
 	int		tmp;
 
-	i = 0;
-	while (i < size)
+	i = size;
+	while (i >= 1)
 	{
-		j = i + i;
-		while (j < size)
+		j = 0;
+		while (j < i)
 		{
-			if (data->tab[j] < data->tab[i])
+			if (data->tab[j] > data->tab[i])
 			{
 				tmp = data->tab[i];
 				data->tab[i] = data->tab[j];
@@ -48,8 +48,13 @@ void	sort_tab(t_data *data, int size)
 			}
 			j++;
 		}
-		printf("%i\n", data->tab[i]);
-		i++;
+		i--;
+	}
+	j = 0;
+	while (j <= size)
+	{
+		printf("%i ", data->tab[j]);
+		j++;
 	}
 }
 

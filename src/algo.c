@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/26 23:42:32 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:04:17 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,57 @@ void	algo_test(t_data *data)
 	}
 }
 
+void	afficheall(t_data *data)
+{
+	int minimum;
+	int	value;
+
+	value = 100;
+	minimum = 100;
+	t_lst	*tmp;
+
+	tmp = data->pile_b;
+	while (tmp)
+	{
+		if (tmp->to_sort < minimum)
+		{
+			minimum = tmp->to_sort;
+			value = tmp->value;	
+		}
+		tmp = tmp->next;
+	}
+	printf("la valeur la plus rapide a trier est %i avec %i coups necessaire\n", value, minimum);
+}
+
+void	algo_final(t_data *data, int elements)
+{
+	t_lst	*tmp;
+	int		count;
+
+	count = elements;
+	tmp = data->pile_a;
+	while (count > 3)
+	{
+		push(data, 'b');
+		if (tmp->value >= data->mediane && count < elements)
+			rotate(data, 'b');
+		count--;
+	}
+	algo_3case(data);
+	update_all_sort_indice(data);
+	update_all_sort_time(data);
+	afficheall(data);
+	printpile(data);
+}
+
 void	algo(t_data *data)
 {
 	int	elements;
 
 	elements = ft_count_pile(data->pile_a);
 	printf("elements %i\n", elements);
-	mediane(data, elements);
+	printpile(data);
+	mediane(data, elements-1);
 	// printf("Il y a %i elements dans la pile a\n", ft_count_pile(data->pile_a));
 	if (elements == 2)
 		swap(data, 'a');
@@ -80,12 +124,7 @@ void	algo(t_data *data)
 	else if (elements > 3)
 	{
 		// algo_10case(data);
-		algo_test(data);
+		// algo_test(data);
+		algo_final(data, elements);
 	}
 }
-
-
-// void	algo_final(t_data *data)
-// {
-	
-// }

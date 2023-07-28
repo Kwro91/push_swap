@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:12 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/11 15:55:42 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/28 16:56:58 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void	push(t_data *data, char p)
 	}
 	else
 		printf("Impossible de push\n");
+	ft_update_indice(data);
 }

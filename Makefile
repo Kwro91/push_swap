@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 16:14:38 by besalort          #+#    #+#              #
-#    Updated: 2023/07/26 22:57:37 by besalort         ###   ########.fr        #
+#    Updated: 2023/07/28 17:04:58 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRC = ./src/push_swap.c \
 	./src/algo_sort_element.c \
 	./src/algo_count.c \
 	./src/update_indice.c \
-	./src/mediane.c
+	./src/mediane.c \
+	./src/algo_sort_indice.c \
+	
 	
 LIBFT_PATH = ./src/libft/
 

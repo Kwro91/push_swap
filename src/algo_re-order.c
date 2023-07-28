@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:45:22 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/17 15:05:43 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/28 16:35:59 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	put_at_the_start(t_data *data, t_lst *pile, char c, int count)
 		put_at_the_start(data, tmp, c, count-1);
 }
 
-void	put_right_order(t_data *data, t_lst *pile, char c)
+void	put_right_order(t_data *data, t_lst *pile, char c) //remet tout en ordre a la fin
 {
 	int save;
 	int rotate;
