@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/28 18:04:17 by besalort         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:56:48 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,25 @@ void	algo_final(t_data *data, int elements)
 	int		count;
 
 	count = elements;
-	tmp = data->pile_a;
 	while (count > 3)
 	{
 		push(data, 'b');
+		tmp = data->pile_a;
 		if (tmp->value >= data->mediane && count < elements)
 			rotate(data, 'b');
 		count--;
 	}
 	algo_3case(data);
-	update_all_sort_indice(data);
-	update_all_sort_time(data);
-	afficheall(data);
 	printpile(data);
+	while (ft_count_pile(data->pile_b) > 0)
+	{
+		update_all_sort_indice(data);
+		update_all_sort_time(data);
+		prepare_to_sort(data, chose_fastest(data));
+		sort_fastest(data);
+		printpile(data);
+	}
+	//afficheall(data);
 }
 
 void	algo(t_data *data)
