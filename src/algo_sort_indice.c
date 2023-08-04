@@ -6,11 +6,20 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:05:49 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/31 18:03:11 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/04 14:09:01 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	value_of_last(t_lst *pile)
+{
+	t_lst *tmp;
+	tmp = pile;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp->value);
+}
 
 int which_highest(t_lst *pile)
 {
@@ -49,6 +58,8 @@ int	indice_sort(t_data *data, int value)
 	is_lowest = 1;
 	before = data->pile_a;
 	after = before->next;
+	if (before->value > value && (after->value > before->value) && (value_of_last(data->pile_a) < value))
+		return (0);
 	while (after)
 	{
 		if (is_lowest == 1 && before->value < value)
@@ -60,6 +71,8 @@ int	indice_sort(t_data *data, int value)
 	}
 	if (is_lowest == 1)
 		return (which_lowest(data->pile_a));
+	if (which_highest(data->pile_a) == ft_count_pile(data->pile_a) - 1)
+		return (0);
 	return (which_highest(data->pile_a)+1);
 }
 
@@ -149,44 +162,120 @@ void	prepare_to_sort(t_data *data, int indice)
 	push(data, 'a');
 }
 
-int	value_of_last(t_lst *pile)
+void	sort_rotate(t_data *data, int indice)
 {
-	t_lst *tmp;
-	tmp = pile;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp->value);
+	int	count;
+
+	count = 0;
+	if (indice == 0 && is_highest(data->pile_a) == 1)
+		return ;
+	while (count < indice)
+	{
+		swap(data, 'a');
+		rotate(data, 'a');
+		count++;
+	}
+}
+
+void	sort_reverse(t_data *data, int indice)
+{
+	int	count;
+
+	count = 0;
+	while (count < indice)
+	{
+		reverse_rotate(data, 'a');
+		swap(data, 'a');
+		count++;
+	}
+}
+
+void	sort_all(t_data *data)
+{
+	int	count;
+	t_lst	*tmp;
+
+	tmp = data->pile_a;
+	count = tmp->sort_indice;
+	if (tmp->sort_indice >= (ft_count_pile(data->pile_a)/2 - 1))
+	{
+		count = ft_count_pile(data->pile_a) - tmp->sort_indice - 1;
+		printf("reverse pour %i on doit faire %i operations, l'indice suppose est %i\n", data->pile_a->value, count, tmp->sort_indice);
+		sort_reverse(data, count);
+	}
+	else
+	{
+		printf("rotate pour %i on doit faire %i operations, l'indice suppose est %i\n", data->pile_a->value, count, tmp->sort_indice);
+		sort_rotate(data, count);
+
+	}
+}
+
+void	sort_low_case(t_data *data)
+{
+	t_lst	*tmp;
+	t_lst	*after;
+	
+	tmp = data->pile_a;
+	after = data->pile_a->next;
+	if ((value_of_last(data->pile_a) < tmp->value) && after->value > tmp->value)
+		return ;
+	sort_all(data);
 }
 
 void	sort_fastest(t_data *data)
 {
-	t_lst	*tmp;
-	t_lst	*after;
+	sort_all(data);
+	// t_lst	*tmp;
+	// t_lst	*after;
 
-	tmp = data->pile_a;
-	printf("tmp sort indice est de %i\n", tmp->sort_indice);
-	after = tmp->next;
-	if (tmp->sort_indice == 0)
-		return ;
-	if (tmp->sort_indice > ft_count_pile(data->pile_a)/2)
+	// tmp = data->pile_a;
+	// if (is_lowest(tmp) == 1)
+	// {
+	// 	return (sort_low_case(data));
+	// }
+	// printf("tmp sort indice est de %i\n", tmp->sort_indice);
+	// after = tmp->next;
+	// if (tmp->sort_indice == 0)
+	// 	return ;
+	// if (tmp->sort_indice > ft_count_pile(data->pile_a)/2)
+	// {
+	// 	printf("test1 tmp value :%i et after value %i\n", tmp->value, after->value);
+	// 	while(after && ((after->value < tmp->value) || (value_of_last(data->pile_a) > tmp->value)))
+	// 	{
+	// 		reverse_rotate(data, 'a');
+	// 		if (data->pile_a->value > tmp->value)
+	// 			swap(data, 'a');
+	// 		tmp = data->pile_a;
+	// 		after = tmp->next;
+	// 	}
+	// }
+	// else if (tmp->sort_indice <= ft_count_pile(data->pile_a)/2)
+	// {
+	// 	printf("test2\n");
+	// 	while(after && after->value < tmp->value)
+	// 	{
+	// 		swap(data, 'a');
+	// 		rotate(data, 'a');
+	// 		tmp = data->pile_a;
+	// 		after = data->pile_a->next;
+	// 	}
+	// }
+}
+
+void	reorder_pile(t_data *data)
+{
+	int	chose;
+
+	chose = which_lowest(data->pile_a);
+	if (ft_count_pile(data->pile_a)/2 > chose)
 	{
-		printf("test1 tmp value :%i et after value %i\n", tmp->value, after->value);
-		while(after && ((after->value < tmp->value) || (value_of_last(data->pile_a) > tmp->value)))
-		{
+		while(which_lowest(data->pile_a) != 0)
 			reverse_rotate(data, 'a');
-			swap(data, 'a');
-			after = tmp->next;
-		}
 	}
-	else if (tmp->sort_indice <= ft_count_pile(data->pile_a)/2)
+	else
 	{
-		printf("test2\n");
-		while(after && after->value < tmp->value)
-		{
-			swap(data, 'a');
+		while (which_lowest(data->pile_a) != 0)
 			rotate(data, 'a');
-			tmp = data->pile_a;
-			after = tmp->next;
-		}
 	}
 }

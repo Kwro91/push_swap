@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/31 17:56:48 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/04 14:09:26 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,12 @@ void	algo_final(t_data *data, int elements)
 		update_all_sort_indice(data);
 		update_all_sort_time(data);
 		prepare_to_sort(data, chose_fastest(data));
-		sort_fastest(data);
+		sort_all(data);
 		printpile(data);
 	}
-	//afficheall(data);
+	reorder_pile(data);
+	printpile(data);
+	// afficheall(data);
 }
 
 void	algo(t_data *data)

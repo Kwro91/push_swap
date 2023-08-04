@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/31 16:44:59 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/04 14:10:12 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_data
 	int		*tab;
 	int		mediane;
 	int		coups;
+	int		high_a;
+	int		low_a;
 	t_lst	*pile_a;
 	t_lst	*pile_b;
 }	t_data;
@@ -86,6 +88,10 @@ int		chose_fastest(t_data *data);
 void	prepare_to_sort(t_data *data, int indice);
 int		value_of_last(t_lst *pile);
 void	sort_fastest(t_data *data);
+void	reorder_pile(t_data *data);
+void	sort_all(t_data *data);
+void	sort_reverse(t_data *data, int indice);
+void	sort_rotate(t_data *data, int indice);
 //
 //
 //
