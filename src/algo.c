@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/04 14:09:26 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/04 15:45:53 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	algo_final(t_data *data, int elements)
 	while (count > 3)
 	{
 		push(data, 'b');
-		tmp = data->pile_a;
+		tmp = data->pile_b;
 		if (tmp->value >= data->mediane && count < elements)
 			rotate(data, 'b');
 		count--;
