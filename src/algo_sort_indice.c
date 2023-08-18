@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:05:49 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/07 16:10:24 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:18:24 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ void	prepare_to_sort(t_data *data, int indice)
 {
 	t_lst	*tmp;
 
+	tmp = data->pile_b;
 	while(tmp && tmp->indice != indice)
 		tmp = tmp->next;
 	if (indice > ft_count_pile(data->pile_b)/2)
@@ -159,7 +160,6 @@ void	prepare_to_sort(t_data *data, int indice)
 	else
 		while (tmp && tmp->indice != 0)
 			rotate(data, 'b');
-	// push(data, 'a');
 }
 
 void	sort_rotate(t_data *data, int indice)

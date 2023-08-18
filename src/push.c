@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:12 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/28 16:56:58 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:33:36 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	push_to_a(t_data *data)
 	else
 		element->next = NULL;
 	data->pile_a = element;
+	data->coups++;
 }
 
 void	push_to_b(t_data *data)
@@ -42,21 +43,16 @@ void	push_to_b(t_data *data)
 	else
 		element->next = NULL;
 	data->pile_b = element;
+	data->coups++;
 }
 
 void	push(t_data *data, char p)
 {
 	ft_printf("p%c\n", p);
 	if (p == 'a' && data->pile_b)
-	{
 		push_to_a(data);
-		data->coups++;
-	}
 	else if (p == 'b' && data->pile_a)
-	{
 		push_to_b(data);
-		data->coups++;
-	}
 	else
 		printf("Impossible de push\n");
 	ft_update_indice(data);
