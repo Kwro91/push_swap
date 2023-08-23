@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/04 14:10:12 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:15:42 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,14 @@ int		indice_sort(t_data *data, int value);
 void	update_all_sort_indice(t_data *data);
 void	update_all_sort_time(t_data *data);
 int		chose_fastest(t_data *data);
-void	prepare_to_sort(t_data *data, int indice);
+void	prepare_to_sort(t_data *data, int indice, int r_done);
 int		value_of_last(t_lst *pile);
 void	sort_fastest(t_data *data);
 void	reorder_pile(t_data *data);
 void	sort_all(t_data *data);
 void	sort_reverse(t_data *data, int indice);
 void	sort_rotate(t_data *data, int indice);
+int		using_r(t_data* data, int indice);
 //
 //
 //

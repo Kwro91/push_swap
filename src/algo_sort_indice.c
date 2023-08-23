@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:05:49 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/18 15:18:24 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:25:23 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,13 +145,17 @@ int	chose_fastest(t_data *data)
 	return (indice);
 }
 
-void	prepare_to_sort(t_data *data, int indice)
+void	prepare_to_sort(t_data *data, int indice, int r_done)
 {
 	t_lst	*tmp;
 
+	// if (indice >= r_done)
+	// printf("indice = %i et r_done = %i\n", indice , r_done);
+	indice = indice - r_done;
 	tmp = data->pile_b;
 	while(tmp && tmp->indice != indice)
 		tmp = tmp->next;
+	tmp->sort_indice = tmp->sort_indice - r_done;
 	if (indice > ft_count_pile(data->pile_b)/2)
 	{
 		while (tmp && tmp->indice != 0)
@@ -200,67 +204,15 @@ void	sort_all(t_data *data)
 	if (count != 0 && tmp->sort_indice >= (ft_count_pile(data->pile_a)/2 - 1))
 	{
 		count = ft_count_pile(data->pile_a) - tmp->sort_indice;
-		printf("reverse pour %i on doit faire %i operations, l'indice suppose est %i\n", data->pile_b->value, count, tmp->sort_indice);
+		// printf("reverse pour %i on doit faire %i operations, l'indice suppose est %i\n", data->pile_b->value, count, tmp->sort_indice);
 		sort_reverse(data, count);
 	}
 	else if (count != 0)
 	{
-		printf("rotate pour %i on doit faire %i operations, l'indice suppose est %i\n", data->pile_b->value, count, tmp->sort_indice);
+		// printf("rotate pour %i on doit faire %i operations, l'indice suppose est %i\n", data->pile_b->value, count, tmp->sort_indice);
 		sort_rotate(data, count);
 	}
 	push(data, 'a');
-}
-
-// void	sort_low_case(t_data *data)
-// {
-// 	t_lst	*tmp;
-// 	t_lst	*after;
-	
-// 	tmp = data->pile_a;
-// 	after = data->pile_a->next;
-// 	if ((value_of_last(data->pile_a) < tmp->value) && after->value > tmp->value)
-// 		return ;
-// 	sort_all(data);
-// }
-
-void	sort_fastest(t_data *data)
-{
-	sort_all(data);
-	// t_lst	*tmp;
-	// t_lst	*after;
-
-	// tmp = data->pile_a;
-	// if (is_lowest(tmp) == 1)
-	// {
-	// 	return (sort_low_case(data));
-	// }
-	// printf("tmp sort indice est de %i\n", tmp->sort_indice);
-	// after = tmp->next;
-	// if (tmp->sort_indice == 0)
-	// 	return ;
-	// if (tmp->sort_indice > ft_count_pile(data->pile_a)/2)
-	// {
-	// 	printf("test1 tmp value :%i et after value %i\n", tmp->value, after->value);
-	// 	while(after && ((after->value < tmp->value) || (value_of_last(data->pile_a) > tmp->value)))
-	// 	{
-	// 		reverse_rotate(data, 'a');
-	// 		if (data->pile_a->value > tmp->value)
-	// 			swap(data, 'a');
-	// 		tmp = data->pile_a;
-	// 		after = tmp->next;
-	// 	}
-	// }
-	// else if (tmp->sort_indice <= ft_count_pile(data->pile_a)/2)
-	// {
-	// 	printf("test2\n");
-	// 	while(after && after->value < tmp->value)
-	// 	{
-	// 		swap(data, 'a');
-	// 		rotate(data, 'a');
-	// 		tmp = data->pile_a;
-	// 		after = data->pile_a->next;
-	// 	}
-	// }
 }
 
 void	reorder_pile(t_data *data)
@@ -278,4 +230,44 @@ void	reorder_pile(t_data *data)
 		while (which_lowest(data->pile_a) != 0)
 			rotate(data, 'a');
 	}
+}
+
+
+int	using_r(t_data* data, int indice)
+{
+	t_lst	*tmp;
+	int		count;
+
+	count = 0;
+	tmp = data->pile_b;
+	// printf("indice dans using r = %i\n", indice);
+	while (tmp && tmp->indice != indice)
+		tmp = tmp->next;
+	if (tmp->to_sort == 0 || indice == 0)
+		return (count);
+	if (indice < ft_count_pile(data->pile_b)/2)
+	{
+		if (tmp->sort_indice < ft_count_pile(data->pile_a)/2)
+		{
+			while (count < indice && count < tmp->sort_indice)
+			{
+				printpile(data);
+				rotate(data, 'r');
+				count++;
+			}
+		}
+	}
+	else
+	{
+		if (tmp->sort_indice >= ft_count_pile(data->pile_a)/2)
+		{
+			while (count < (ft_count_pile(data->pile_a) - indice + 1) && count < (ft_count_pile(data->pile_b) - tmp->sort_indice + 1))
+			{
+				printpile(data);
+				reverse_rotate(data, 'r');
+				count++;
+			}
+		}
+	}
+	return (count);
 }

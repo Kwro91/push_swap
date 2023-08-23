@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 22:44:01 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/28 16:04:59 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/20 17:10:59 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ void	mediane(t_data *data, int nb) // il faut lui donner un tableau trie
 		i++;
 	}
 	data->mediane = data->tab[i];
-	printf("la medianne est de %i\n", data->mediane);
+	// printf("la medianne est de %i\n", data->mediane);
 }

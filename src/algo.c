@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/04 15:45:53 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/23 14:47:09 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	algo_final(t_data *data, int elements)
 {
 	t_lst	*tmp;
 	int		count;
+	int		fastest;
 
 	count = elements;
 	while (count > 3)
@@ -102,14 +103,15 @@ void	algo_final(t_data *data, int elements)
 		count--;
 	}
 	algo_3case(data);
-	printpile(data);
+	// printpile(data);
 	while (ft_count_pile(data->pile_b) > 0)
 	{
 		update_all_sort_indice(data);
 		update_all_sort_time(data);
-		prepare_to_sort(data, chose_fastest(data));
+		fastest = chose_fastest(data);
+		prepare_to_sort(data, fastest, using_r(data, fastest));
 		sort_all(data);
-		printpile(data);
+		// printpile(data);
 	}
 	reorder_pile(data);
 	printpile(data);
@@ -121,8 +123,8 @@ void	algo(t_data *data)
 	int	elements;
 
 	elements = ft_count_pile(data->pile_a);
-	printf("elements %i\n", elements);
-	printpile(data);
+	// printf("elements %i\n", elements);
+	// printpile(data);
 	mediane(data, elements-1);
 	// printf("Il y a %i elements dans la pile a\n", ft_count_pile(data->pile_a));
 	if (elements == 2)
@@ -130,9 +132,5 @@ void	algo(t_data *data)
 	if (elements == 3)
 		algo_3case(data);
 	else if (elements > 3)
-	{
-		// algo_10case(data);
-		// algo_test(data);
 		algo_final(data, elements);
-	}
 }
