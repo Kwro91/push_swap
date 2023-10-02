@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:15 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/23 15:37:31 by besalort         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:52:20 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	rotate(t_data *data, char p)
 		rotate_b(data);
 	else if (p == 'r' && (ft_count_pile(data->pile_a) > 1 && ft_count_pile(data->pile_b) > 1))
 	{
-		printf("J'UTILISE LE RR WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOW\n");
 		rotate_a(data);
 		rotate_b(data);
 		data->coups--;

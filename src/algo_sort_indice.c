@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:05:49 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/23 17:25:23 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:21:59 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,28 +99,22 @@ void	update_all_sort_time(t_data *data)
 		move_in_pile_b = tmp->indice;
 		if (tmp->indice > ft_count_pile(data->pile_b)/2)
 			move_in_pile_b = (ft_count_pile(data->pile_b) - tmp->indice);
-		// printf("%i est mon sort indice et on compte %i movement pour pouvoir etre push\n", tmp->sort_indice, move_in_pile_b);
-		if (tmp->sort_indice == 0)//au debut
+		if (tmp->sort_indice == 0)
 		{
-			// printf("au debut\n");
 			tmp->to_sort = 1 + move_in_pile_b;
 		} 
-		else if (tmp->sort_indice <= ft_count_pile(data->pile_a)/2) //le ranger dans la premiere moitiee d'indice
+		else if (tmp->sort_indice <= ft_count_pile(data->pile_a)/2)
 		{
-			// printf("le ranger dans la premiere moitiee d'indice\n");
 			tmp->to_sort = 1 + tmp->sort_indice - 1 + move_in_pile_b;
 		}
-		else if (tmp->sort_indice == ft_count_pile(data->pile_a)) //a la fin
+		else if (tmp->sort_indice == ft_count_pile(data->pile_a))
 		{
-			// printf("a la fin\n");
 			tmp->to_sort = 1 + move_in_pile_b;
 		}
-		else //le ranger dans la deuxieme moitiee d'indice
+		else
 		{
-			// printf("le ranger dans la deuxieme moitiee d'indice\n");
 			tmp->to_sort = 1 + (ft_count_pile(data->pile_a) - tmp->sort_indice) + move_in_pile_b;
 		}
-		// printf("la valeur %i est triee en %icoups\n\n", tmp->value, tmp->to_sort);
 		tmp = tmp->next;
 	}
 }
@@ -131,6 +125,7 @@ int	chose_fastest(t_data *data)
 	int		fastest;
 	t_lst	*tmp;
 
+    indice = 0;
 	fastest = 100;
 	tmp = data->pile_b;
 	while (tmp)
@@ -149,8 +144,6 @@ void	prepare_to_sort(t_data *data, int indice, int r_done)
 {
 	t_lst	*tmp;
 
-	// if (indice >= r_done)
-	// printf("indice = %i et r_done = %i\n", indice , r_done);
 	indice = indice - r_done;
 	tmp = data->pile_b;
 	while(tmp && tmp->indice != indice)
@@ -175,7 +168,6 @@ void	sort_rotate(t_data *data, int indice)
 		return ;
 	while (count < indice)
 	{
-		// swap(data, 'a');
 		rotate(data, 'a');
 		count++;
 	}
@@ -189,7 +181,6 @@ void	sort_reverse(t_data *data, int indice)
 	while (count < indice)
 	{
 		reverse_rotate(data, 'a');
-		// swap(data, 'a');
 		count++;
 	}
 }
@@ -204,14 +195,10 @@ void	sort_all(t_data *data)
 	if (count != 0 && tmp->sort_indice >= (ft_count_pile(data->pile_a)/2 - 1))
 	{
 		count = ft_count_pile(data->pile_a) - tmp->sort_indice;
-		// printf("reverse pour %i on doit faire %i operations, l'indice suppose est %i\n", data->pile_b->value, count, tmp->sort_indice);
 		sort_reverse(data, count);
 	}
 	else if (count != 0)
-	{
-		// printf("rotate pour %i on doit faire %i operations, l'indice suppose est %i\n", data->pile_b->value, count, tmp->sort_indice);
 		sort_rotate(data, count);
-	}
 	push(data, 'a');
 }
 
@@ -240,7 +227,6 @@ int	using_r(t_data* data, int indice)
 
 	count = 0;
 	tmp = data->pile_b;
-	// printf("indice dans using r = %i\n", indice);
 	while (tmp && tmp->indice != indice)
 		tmp = tmp->next;
 	if (tmp->to_sort == 0 || indice == 0)
@@ -251,7 +237,6 @@ int	using_r(t_data* data, int indice)
 		{
 			while (count < indice && count < tmp->sort_indice)
 			{
-				printpile(data);
 				rotate(data, 'r');
 				count++;
 			}
@@ -263,10 +248,10 @@ int	using_r(t_data* data, int indice)
 		{
 			while (count < (ft_count_pile(data->pile_a) - indice + 1) && count < (ft_count_pile(data->pile_b) - tmp->sort_indice + 1))
 			{
-				printpile(data);
 				reverse_rotate(data, 'r');
 				count++;
 			}
+            count = -count;
 		}
 	}
 	return (count);

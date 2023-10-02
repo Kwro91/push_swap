@@ -6,26 +6,11 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:21:25 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/10 19:57:53 by besalort         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:30:04 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_count_pile(t_lst *pile)
-{
-	int		count;
-	t_lst	*tmp;
-
-	count = 0;
-	tmp = pile;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		count++;
-	}
-	return (count);
-}
 
 int	is_double_in_lst(t_data *data)
 {
@@ -86,6 +71,22 @@ int	ft_is_only_number(char **av)
 				return (-1);
 			j++;
 		}
+		i++;
+	}
+	return (1);
+}
+
+int ft_is_only_int(char **av)
+{
+	int	i;
+	long int	value;
+
+	i = 1;
+	while (av[i])
+	{
+		value = ft_atoi_long(av[i]);
+		if (value > 2147483647 || value < -2147483648)
+			return (-1);
 		i++;
 	}
 	return (1);

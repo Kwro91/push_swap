@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:38 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/23 13:56:52 by besalort         ###   ########.fr       */
+/*   Updated: 2023/09/26 12:10:45 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,19 @@ void	push_swap(int ac, char **av)
 	t_data	data;
 
 	data = (t_data){};
-	if (ft_is_only_number(av) == -1) // + BESOINS DE VERIF QUE TOUT LES NOMBRES SONT BIEN COMPRIS DANS UN INT
+	if (ft_is_only_number(av) == -1 || ft_is_only_int(av) == -1)
 	{
-		ft_printf("Invalid values, please put only numbers\n");
+		ft_printf("Error\n");
 		return ;
 	}
 	load(&data, ac, av);
 	if (verif(&data) == -1)
 	{
-		ft_printf("Invalid values (sorted or double)\n");
+		ft_printf("Error\n");
 		return ;
 	}
 	algo(&data);
-	// printpile(&data); // CECI EST UNIQUEMENT POUR LES TESTS !!!
+    ft_free_ps(&data);
 }
 
 int	main(int ac, char **av)
@@ -58,5 +58,5 @@ int	main(int ac, char **av)
 	if (ac >= 3)
 		push_swap(ac, av);
 	else
-		ft_printf("Error, wrong number of argument");
+		ft_printf("Error\n");
 }

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/18 17:15:42 by besalort         ###   ########.fr       */
+/*   Updated: 2023/09/26 12:31:15 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef struct s_lst
 typedef struct s_data
 {
 	int		*tab;
-	int		mediane;
+	int     nb_elem;
+    int		mediane;
 	int		coups;
 	int		high_a;
 	int		low_a;
@@ -49,20 +50,21 @@ void	swap(t_data	*data, char p);
 // LOAD.C
 void	load(t_data *data, int ac, char **av);
 // MEDIANE.C
-void	create_tab(t_data *data, int count);
+void	create_tab(t_data *data);
 void	sort_tab(t_data *data, int size);
 void	mediane(t_data *data, int nb);
 // VERIF.C
-int		ft_count_pile(t_lst *pile);
 int		is_double_in_lst(t_data *data);
 int		is_sort(t_data *data);
 int		ft_is_only_number(char **av);
+int 	ft_is_only_int(char **av);
 int		verif(t_data *data);
 // ALGO_RE-ORDER.C
 void	put_right_order(t_data *data, t_lst *pile, char c);
 void	put_at_the_start(t_data *data, t_lst *pile, char c, int count);
 void	put_at_the_end(t_data *data, t_lst *pile, char c, int count);
 // ALGO_COUNT.C
+int		ft_count_pile(t_lst *pile);
 int		how_many_inf(t_lst *pile, int value);
 int		how_many_supp(t_lst *pile, int value);
 // ALGO_SORT_ELEMENT.C
@@ -93,6 +95,9 @@ void	sort_all(t_data *data);
 void	sort_reverse(t_data *data, int indice);
 void	sort_rotate(t_data *data, int indice);
 int		using_r(t_data* data, int indice);
+// FREE_ALL.C
+void    ft_free_ps(t_data *data);
+void    ft_free_pile(t_lst *pile);
 //
 //
 //

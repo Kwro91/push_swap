@@ -6,13 +6,14 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 14:57:22 by besalort          #+#    #+#              #
-#    Updated: 2023/04/07 14:35:22 by besalort         ###   ########.fr        #
+#    Updated: 2023/08/25 17:32:42 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 SRCS =	ft_atoi.c \
+		ft_atoi_long.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \

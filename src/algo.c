@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/23 14:47:09 by besalort         ###   ########.fr       */
+/*   Updated: 2023/09/26 12:31:58 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	algo_10case(t_data *data)
 {
 	while (ft_count_pile(data->pile_a) != 3)
 		push(data, 'b');
-	//printpile(data); // CECI EST UNIQUEMENT POUR LES TESTS !!!
 	algo_3case(data);
 	sort_one_element(data, data->pile_b, 'b');
 	while (ft_count_pile(data->pile_b) != 0)
@@ -26,7 +25,6 @@ void	algo_10case(t_data *data)
 	}
 	while (is_pile_sort(data->pile_a) != 1)
 	{
-		// printpile(data); // CECI EST UNIQUEMENT POUR LES TESTS !!!
 		put_right_order(data, data->pile_a, 'a');
 	}
 }
@@ -65,27 +63,26 @@ void	algo_test(t_data *data)
 	}
 }
 
-void	afficheall(t_data *data)
-{
-	int minimum;
-	int	value;
+// void	afficheall(t_data *data)
+// {
+// 	int minimum;
+// 	int	value;
 
-	value = 100;
-	minimum = 100;
-	t_lst	*tmp;
+// 	value = 100;
+// 	minimum = 100;
+// 	t_lst	*tmp;
 
-	tmp = data->pile_b;
-	while (tmp)
-	{
-		if (tmp->to_sort < minimum)
-		{
-			minimum = tmp->to_sort;
-			value = tmp->value;	
-		}
-		tmp = tmp->next;
-	}
-	printf("la valeur la plus rapide a trier est %i avec %i coups necessaire\n", value, minimum);
-}
+// 	tmp = data->pile_b;
+// 	while (tmp)
+// 	{
+// 		if (tmp->to_sort < minimum)
+// 		{
+// 			minimum = tmp->to_sort;
+// 			value = tmp->value;	
+// 		}
+// 		tmp = tmp->next;
+// 	}
+// }
 
 void	algo_final(t_data *data, int elements)
 {
@@ -103,7 +100,6 @@ void	algo_final(t_data *data, int elements)
 		count--;
 	}
 	algo_3case(data);
-	// printpile(data);
 	while (ft_count_pile(data->pile_b) > 0)
 	{
 		update_all_sort_indice(data);
@@ -111,26 +107,19 @@ void	algo_final(t_data *data, int elements)
 		fastest = chose_fastest(data);
 		prepare_to_sort(data, fastest, using_r(data, fastest));
 		sort_all(data);
-		// printpile(data);
 	}
 	reorder_pile(data);
-	printpile(data);
-	// afficheall(data);
 }
 
 void	algo(t_data *data)
 {
-	int	elements;
-
-	elements = ft_count_pile(data->pile_a);
-	// printf("elements %i\n", elements);
-	// printpile(data);
-	mediane(data, elements-1);
-	// printf("Il y a %i elements dans la pile a\n", ft_count_pile(data->pile_a));
-	if (elements == 2)
+    data->nb_elem = 0;
+	data->nb_elem = ft_count_pile(data->pile_a);
+	mediane(data, data->nb_elem);
+	if (data->nb_elem == 2)
 		swap(data, 'a');
-	if (elements == 3)
+	if (data->nb_elem == 3)
 		algo_3case(data);
-	else if (elements > 3)
-		algo_final(data, elements);
+	else if (data->nb_elem > 3)
+		algo_final(data, data->nb_elem);
 }
