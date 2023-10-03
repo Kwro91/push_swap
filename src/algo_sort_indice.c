@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:05:49 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/02 18:21:59 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:56:11 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ int	chose_fastest(t_data *data)
 	t_lst	*tmp;
 
     indice = 0;
-	fastest = 100;
+	fastest = 1000;
 	tmp = data->pile_b;
 	while (tmp)
 	{
@@ -148,7 +148,8 @@ void	prepare_to_sort(t_data *data, int indice, int r_done)
 	tmp = data->pile_b;
 	while(tmp && tmp->indice != indice)
 		tmp = tmp->next;
-	tmp->sort_indice = tmp->sort_indice - r_done;
+    if (tmp)
+	    tmp->sort_indice = tmp->sort_indice - r_done;
 	if (indice > ft_count_pile(data->pile_b)/2)
 	{
 		while (tmp && tmp->indice != 0)
@@ -190,6 +191,7 @@ void	sort_all(t_data *data)
 	int	count;
 	t_lst	*tmp;
 
+    update_all_sort_indice(data);
 	tmp = data->pile_b;
 	count = tmp->sort_indice;
 	if (count != 0 && tmp->sort_indice >= (ft_count_pile(data->pile_a)/2 - 1))
@@ -237,6 +239,7 @@ int	using_r(t_data* data, int indice)
 		{
 			while (count < indice && count < tmp->sort_indice)
 			{
+                ft_printf("Ici, on r rotate pour le nb %i\n", tmp->value);
 				rotate(data, 'r');
 				count++;
 			}
@@ -246,13 +249,17 @@ int	using_r(t_data* data, int indice)
 	{
 		if (tmp->sort_indice >= ft_count_pile(data->pile_a)/2)
 		{
-			while (count < (ft_count_pile(data->pile_a) - indice + 1) && count < (ft_count_pile(data->pile_b) - tmp->sort_indice + 1))
-			{
+			// while (count < (ft_count_pile(data->pile_a) - tmp->sort_indice) && count < (ft_count_pile(data->pile_b) - indice))
+			while(count < (ft_count_pile(data->pile_a) - tmp->sort_indice) && tmp->indice > 0)
+            {
+                ft_printf("je m'execute et la valeur de tmp->indice est de %i pour classer le nb %i\n", tmp->indice, tmp->value);
 				reverse_rotate(data, 'r');
 				count++;
 			}
             count = -count;
 		}
+        if (tmp->indice == 0)
+            ft_printf("Cette condition fonctionne parfaitement n'en deplaise aux rageux pour la valeur %i\n", tmp->indice);
 	}
 	return (count);
 }

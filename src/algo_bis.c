@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 11:13:13 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/28 16:51:03 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:30:38 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	is_pile_sort(t_lst *pile)
 		{
 			if (check->value >= element->value)
 			{
+                printf("%i est incorrect\n", element->value);
 				return (0);
 			}
 			element = element->next;
