@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:41:59 by besalort          #+#    #+#             */
-/*   Updated: 2023/07/11 15:54:48 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/06 18:39:40 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,8 @@ void	printpile(t_data *data)
 		tmpb = tmpb->next;
 	}
 	ft_printf("%i coups pour trier\n", data->coups);
+    if (is_pile_sort(data->pile_a) == 1)
+        ft_printf("la pile A est triee\n");
+    if (is_pile_sort(data->pile_b) == 1)
+        ft_printf("la pile B est triee\n");
 }

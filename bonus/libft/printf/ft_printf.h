@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 17:24:09 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/06 16:45:26 by besalort         ###   ########.fr       */
+/*   Created: 2022/11/30 13:35:16 by besalort          #+#    #+#             */
+/*   Updated: 2023/04/07 13:39:03 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FT_PRINTF_H
 
-void	load(t_data *data, int ac, char **av)
-{
-	t_lst	*pile_a;
-	t_lst	*pile_b;
+# define FT_PRINTF_H
 
-	pile_a = create_elements(ac - 1, &av[1], 0);
-	pile_b = NULL;
-	data->pile_a = pile_a;
-	data->pile_b = pile_b;
-}
+# include	<stdarg.h>
+# include	<string.h>
+# include	<stdio.h>
+# include	<unistd.h>
+# include	<stdlib.h>
+
+int	ft_printf(const char *str, ...);
+int	ft_putchar_i(char c);
+int	ft_putstr_i(char *str);
+int	ft_putnbr_i(int nb);
+int	ft_putnbr_u(unsigned int nb);
+int	ft_convertbase(unsigned int nb, int up);
+int	ft_adress(void *p);
+
+#endif

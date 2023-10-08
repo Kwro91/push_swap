@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 15:42:12 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/06 17:05:02 by besalort         ###   ########.fr       */
+/*   Created: 2023/10/06 17:48:22 by besalort          #+#    #+#             */
+/*   Updated: 2023/10/08 18:20:42 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	push_to_a(t_data *data)
 {
@@ -48,12 +48,8 @@ void	push_to_b(t_data *data)
 
 void	push(t_data *data, char p)
 {
-	ft_printf("p%c\n", p);
 	if (p == 'a' && data->pile_b)
 		push_to_a(data);
 	else if (p == 'b' && data->pile_a)
 		push_to_b(data);
-	else
-		ft_printf("Error\n");
-	ft_update_indice(data);
 }

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:15 by besalort          #+#    #+#             */
-/*   Updated: 2023/09/05 17:52:20 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/06 17:04:34 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	rotate(t_data *data, char p)
 		data->coups--;
 	}
 	else
-		ft_printf("Impossible de rotate\n");
+		ft_printf("Error\n");
 	ft_update_indice(data);
 }

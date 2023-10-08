@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:05:49 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/03 18:56:11 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/06 18:33:32 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,7 +239,6 @@ int	using_r(t_data* data, int indice)
 		{
 			while (count < indice && count < tmp->sort_indice)
 			{
-                ft_printf("Ici, on r rotate pour le nb %i\n", tmp->value);
 				rotate(data, 'r');
 				count++;
 			}
@@ -252,14 +251,11 @@ int	using_r(t_data* data, int indice)
 			// while (count < (ft_count_pile(data->pile_a) - tmp->sort_indice) && count < (ft_count_pile(data->pile_b) - indice))
 			while(count < (ft_count_pile(data->pile_a) - tmp->sort_indice) && tmp->indice > 0)
             {
-                ft_printf("je m'execute et la valeur de tmp->indice est de %i pour classer le nb %i\n", tmp->indice, tmp->value);
 				reverse_rotate(data, 'r');
 				count++;
 			}
             count = -count;
 		}
-        if (tmp->indice == 0)
-            ft_printf("Cette condition fonctionne parfaitement n'en deplaise aux rageux pour la valeur %i\n", tmp->indice);
 	}
 	return (count);
 }

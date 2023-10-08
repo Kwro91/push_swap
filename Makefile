@@ -6,11 +6,13 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 16:14:38 by besalort          #+#    #+#              #
-#    Updated: 2023/09/26 11:50:12 by besalort         ###   ########.fr        #
+#    Updated: 2023/10/08 18:46:13 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+NAMEB = checker
 
 SRC = ./src/push_swap.c \
 	./src/swap.c \
@@ -30,7 +32,19 @@ SRC = ./src/push_swap.c \
 	./src/algo_sort_indice.c \
 	./src/free_all.c \
 	
-	
+SRCB = ./bonus/checker_bonus.c \
+	./bonus/do_cmds_bonus.c \
+	./bonus/free_all_bonus.c \
+	./bonus/is_sort_bonus.c \
+	./bonus/load_bonus.c \
+	./bonus/push_bonus.c \
+	./bonus/read_all_bonus.c \
+	./bonus/reverse_rotate_bonus.c \
+	./bonus/rotate_bonus.c \
+	./bonus/swap_bonus.c \
+	./bonus/verif_bonus.c \
+	./bonus/error_bonus.c \
+
 LIBFT_PATH = ./src/libft/
 
 LIBFT = $(LIBFT_PATH)libft.a
@@ -45,19 +59,26 @@ AR =  ar rcs
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 OBJ = $(SRC:.c=.o)
+OBJB = $(SRCB:.c=.o)
 
 $(NAME)	:	${OBJ}
 		make -C $(LIBFT_PATH)
 		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
+$(NAMEB)	:	${OBJB}
+		make -C $(LIBFT_PATH)
+		$(CC) $(CFLAGS) $(OBJB) $(LIBFT) -o $(NAMEB)
+
 all	:	$(NAME)
 
+bonus : $(NAMEB)
+
 clean :
-		rm -rf $(OBJ)
+		rm -rf $(OBJ) $(OBJB)
 		make clean -C $(LIBFT_PATH)
 
 fclean :	clean
-		rm -rf $(NAME)
+		rm -rf $(NAME) $(NAMEB)
 		make fclean -C $(LIBFT_PATH)
 
 re : fclean all
