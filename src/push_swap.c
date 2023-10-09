@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:38 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 12:10:34 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:38:24 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	push_swap(int ac, char **av)
 		return ;
 	}
 	algo(&data);
-	// printpile(&data);
 	ft_free_ps(&data);
 }
 
