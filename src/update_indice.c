@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:21:27 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/04 12:55:39 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:29:09 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_update_high_a(t_data *data)
 	tmp = data->pile_a;
 	count = 0;
 	indice = which_highest(data->pile_a);
-	while(tmp && count < indice)
+	while (tmp && count < indice)
 	{
 		tmp = tmp->next;
 		count++;
@@ -68,7 +68,7 @@ void	ft_update_low_a(t_data *data)
 	tmp = data->pile_a;
 	count = 0;
 	indice = which_lowest(data->pile_a);
-	while(tmp && count < indice)
+	while (tmp && count < indice)
 	{
 		tmp = tmp->next;
 		count++;

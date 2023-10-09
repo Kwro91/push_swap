@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/06 18:18:19 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:30:54 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_lst
 typedef struct s_data
 {
 	int		*tab;
-	int     nb_elem;
-    int		mediane;
+	int		nb_elem;
+	int		mediane;
 	int		coups;
 	int		high_a;
 	int		low_a;
@@ -57,7 +57,7 @@ void	mediane(t_data *data, int nb);
 int		is_double_in_lst(t_data *data);
 int		is_sort(t_data *data);
 int		ft_is_only_number(char **av);
-int 	ft_is_only_int(char **av);
+int		ft_is_only_int(char **av);
 int		verif(t_data *data);
 // ALGO_RE-ORDER.C
 void	put_right_order(t_data *data, t_lst *pile, char c);
@@ -81,8 +81,8 @@ void	algo_10case(t_data *data);
 // UPDATE_INDICE.C
 void	ft_update_indice(t_data *data);
 // ALGO_SORT_INDICE.C
-int 	which_highest(t_lst *pile);
-int 	which_lowest(t_lst *pile);
+int		which_highest(t_lst *pile);
+int		which_lowest(t_lst *pile);
 int		indice_sort(t_data *data, int value);
 void	update_all_sort_indice(t_data *data);
 void	update_all_sort_time(t_data *data);
@@ -94,10 +94,10 @@ void	reorder_pile(t_data *data);
 void	sort_all(t_data *data);
 void	sort_reverse(t_data *data, int indice);
 void	sort_rotate(t_data *data, int indice);
-int		using_r(t_data* data, int indice);
+int		using_r(t_data *data, int indice);
 // FREE_ALL.C
-void    ft_free_ps(t_data *data);
-void    ft_free_pile(t_lst *pile);
+void	ft_free_ps(t_data *data);
+void	ft_free_pile(t_lst *pile);
 //
 //
 //

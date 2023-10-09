@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:45:22 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/06 18:36:48 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:35:17 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int	ft_count_for_reverse(t_lst *pile, int save)
 {
 	t_lst	*tmp;
-	int 	count_start;
-	
-	
+	int		count_start;
+
 	count_start = 0;
 	tmp = pile;
 	while (tmp && tmp->value < save)
@@ -27,7 +26,7 @@ int	ft_count_for_reverse(t_lst *pile, int save)
 		count_start++;
 		tmp = tmp->next;
 	}
-	return count_start;
+	return (count_start);
 }
 
 int	ft_count_for_rotate(t_lst *pile, int save)
@@ -43,7 +42,7 @@ int	ft_count_for_rotate(t_lst *pile, int save)
 		tmp = tmp->next;
 		count_end++;
 	}
-	return count_end;
+	return (count_end);
 }
 
 void	put_at_the_end(t_data *data, t_lst *pile, char c, int count)
@@ -61,7 +60,7 @@ void	put_at_the_end(t_data *data, t_lst *pile, char c, int count)
 		rotate(data, c);
 	}
 	if (is_pile_sort(tmp) == 0 && count > 0)
-		put_at_the_end(data, tmp, c, count-1);
+		put_at_the_end(data, tmp, c, count - 1);
 }
 
 void	put_at_the_start(t_data *data, t_lst *pile, char c, int count)
@@ -73,14 +72,14 @@ void	put_at_the_start(t_data *data, t_lst *pile, char c, int count)
 		tmp = tmp->next;
 	reverse_rotate(data, c);
 	if (is_pile_sort(tmp) == 0 && count > 0)
-		put_at_the_start(data, tmp, c, count-1);
+		put_at_the_start(data, tmp, c, count - 1);
 }
 
 void	put_right_order(t_data *data, t_lst *pile, char c)
 {
-	int save;
-	int rotate;
-	int reverse;
+	int	save;
+	int	rotate;
+	int	reverse;
 
 	rotate = 0;
 	reverse = 0;

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:18:19 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/08 18:13:32 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:19:45 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void    read_all(t_data *data)
         if (line == NULL)
             break;
         cmd_stack(data, line);
+		free(line);
     }
 }

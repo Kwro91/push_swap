@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:20:06 by besalort          #+#    #+#             */
-/*   Updated: 2023/09/05 17:50:04 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:37:27 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_by_rotate(t_data *data, t_lst *pile, char c, int count)
 		return ;
 	swap(data, c);
 	rotate(data, c);
-	sort_by_rotate(data, pile, c, count-1);
+	sort_by_rotate(data, pile, c, count - 1);
 	reverse_rotate(data, c);
 }
 
@@ -28,7 +28,7 @@ void	sort_by_reverse_rotate(t_data *data, t_lst *pile, char c, int count)
 		return ;
 	reverse_rotate(data, c);
 	swap(data, c);
-	sort_by_reverse_rotate(data, pile, c, count-1);
+	sort_by_reverse_rotate(data, pile, c, count - 1);
 	rotate(data, c);
 	if (count <= 1)
 		rotate(data, c);
@@ -36,7 +36,7 @@ void	sort_by_reverse_rotate(t_data *data, t_lst *pile, char c, int count)
 
 void	rotate_or_reverse_rotate(t_data *data, t_lst *pile, char c)
 {
-	int rotate;
+	int	rotate;
 	int	reverse_rotate;
 
 	rotate = 0;

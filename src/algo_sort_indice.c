@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:05:49 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/06 18:33:32 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:08:58 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 int	value_of_last(t_lst *pile)
 {
-	t_lst *tmp;
+	t_lst	*tmp;
+
 	tmp = pile;
 	while (tmp->next)
 		tmp = tmp->next;
 	return (tmp->value);
 }
 
-int which_highest(t_lst *pile)
+int	which_highest(t_lst *pile)
 {
 	t_lst	*tmp;
-	
+
 	tmp = pile;
 	while (tmp)
 	{
@@ -35,10 +36,10 @@ int which_highest(t_lst *pile)
 	return (0);
 }
 
-int which_lowest(t_lst *pile)
+int	which_lowest(t_lst *pile)
 {
 	t_lst	*tmp;
-	
+
 	tmp = pile;
 	while (tmp)
 	{
@@ -51,7 +52,7 @@ int which_lowest(t_lst *pile)
 
 int	indice_sort(t_data *data, int value)
 {
-	t_lst 	*before;
+	t_lst	*before;
 	t_lst	*after;
 	int		is_lowest;
 
@@ -73,13 +74,13 @@ int	indice_sort(t_data *data, int value)
 		return (which_lowest(data->pile_a));
 	if (which_highest(data->pile_a) == ft_count_pile(data->pile_a) - 1)
 		return (0);
-	return (which_highest(data->pile_a)+1);
+	return (which_highest(data->pile_a) + 1);
 }
 
 void	update_all_sort_indice(t_data *data)
 {
 	t_lst	*tmp;
-	
+
 	tmp = data->pile_b;
 	while (tmp)
 	{

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 11:13:13 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/06 18:41:16 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:08:35 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	is_pile_sort(t_lst *pile)
 	t_lst	*check;
 
 	check = pile;
-    if (check == NULL)
-    {
-        return (1);
-    }
+	if (check == NULL)
+	{
+		return (1);
+	}
 	while (check->next)
 	{
 		element = check->next;

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 22:44:01 by besalort          #+#    #+#             */
-/*   Updated: 2023/09/26 12:34:59 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:35:58 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	create_tab(t_data *data)
 {
 	int		i;
 	t_lst	*tmp;
-
 
 	i = 0;
 	tmp = data->pile_a;
@@ -35,7 +34,7 @@ void	sort_tab(t_data *data, int size)
 	int		j;
 	int		tmp;
 
-	i = size-1;
+	i = size - 1;
 	while (i >= 1)
 	{
 		j = 0;
@@ -60,10 +59,10 @@ void	mediane(t_data *data, int nb)
 	i = 0;
 	create_tab(data);
 	sort_tab(data, nb);
-	if (nb %2 != 0)
-		nb = nb/2 +1;
+	if (nb % 2 != 0)
+		nb = nb / 2 + 1;
 	else
-		nb = nb/2;
+		nb = nb / 2;
 	while (nb > 0)
 	{
 		nb--;

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:21:25 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/25 17:30:04 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:33:49 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ int	ft_is_only_number(char **av)
 	return (1);
 }
 
-int ft_is_only_int(char **av)
+int	ft_is_only_int(char **av)
 {
-	int	i;
+	int			i;
 	long int	value;
 
 	i = 1;

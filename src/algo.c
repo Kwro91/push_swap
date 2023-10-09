@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/03 18:42:21 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:28:37 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,36 +53,8 @@ void	algo_test(t_data *data)
 	{
 		push(data, 'b');
 		sort_one_element(data, data->pile_b, 'b');
-		// printpile(data);
-		// while (is_pile_sort(data->pile_b) != 1)
-		// {
-		// 	// printf("Je me declenche\n");
-		// 	// printpile(data);
-		// 	put_right_order(data, data->pile_b, 'b');
-		// }
 	}
 }
-
-// void	afficheall(t_data *data)
-// {
-// 	int minimum;
-// 	int	value;
-
-// 	value = 100;
-// 	minimum = 100;
-// 	t_lst	*tmp;
-
-// 	tmp = data->pile_b;
-// 	while (tmp)
-// 	{
-// 		if (tmp->to_sort < minimum)
-// 		{
-// 			minimum = tmp->to_sort;
-// 			value = tmp->value;	
-// 		}
-// 		tmp = tmp->next;
-// 	}
-// }
 
 void	algo_final(t_data *data, int elements)
 {
@@ -113,7 +85,7 @@ void	algo_final(t_data *data, int elements)
 
 void	algo(t_data *data)
 {
-    data->nb_elem = 0;
+	data->nb_elem = 0;
 	data->nb_elem = ft_count_pile(data->pile_a);
 	mediane(data, data->nb_elem);
 	if (data->nb_elem == 2)

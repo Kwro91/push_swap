@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:22:52 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/06 17:04:17 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:32:22 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void	reverse_rotate(t_data *data, char p)
 		reverse_rotate_a(data);
 	else if (p == 'b' && (ft_count_pile(data->pile_b) > 1))
 		reverse_rotate_b(data);
-	else if (p == 'r' && (ft_count_pile(data->pile_a) > 1 && (ft_count_pile(data->pile_b) > 1)))
+	else if (p == 'r' && (ft_count_pile(data->pile_a) > 1
+			&& (ft_count_pile(data->pile_b) > 1)))
 	{
 		reverse_rotate_a(data);
 		reverse_rotate_b(data);
