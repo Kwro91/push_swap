@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:20:06 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 13:37:00 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:15:08 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sort_all(t_data *data)
 	update_all_sort_indice(data);
 	tmp = data->pile_b;
 	count = tmp->sort_indice;
-	if (count != 0 && tmp->sort_indice >= (ft_count_pile(data->pile_a) / 2 - 1))
+	if (count != 0 && tmp->sort_indice > (ft_count_pile(data->pile_a) / 2))
 	{
 		count = ft_count_pile(data->pile_a) - tmp->sort_indice;
 		sort_reverse(data, count);

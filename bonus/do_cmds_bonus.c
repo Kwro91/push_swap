@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:00:28 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 13:50:32 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:34:29 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	do_cmds(t_data *data)
 	int	i;
 
 	i = 0;
-	while (data->cmds[i])
+	while (data->cmds && data->cmds[i])
 	{
 		is_push(data, data->cmds[i]);
 		is_rotate(data, data->cmds[i]);
@@ -63,7 +63,9 @@ int	do_cmds(t_data *data)
 			return (-1);
 		i++;
 	}
-	if (is_pile_sort(data->pile_a) == 1 && is_pile_sort(data->pile_b) == 1)
+	if (is_pile_sort(data->pile_a) == 1 && data->pile_b == NULL)
+		return (1);
+	else if (is_pile_sort(data->pile_b) == 1 && data->pile_a == NULL)
 		return (1);
 	return (0);
 }

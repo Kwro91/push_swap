@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:45:22 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 13:35:54 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:16:53 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	reorder_pile(t_data *data)
 	if (ft_count_pile(data->pile_a) / 2 > chose)
 	{
 		while (which_lowest(data->pile_a) != 0)
-			reverse_rotate(data, 'a');
+			rotate(data, 'a');
 	}
 	else
 	{
 		while (which_lowest(data->pile_a) != 0)
-			rotate(data, 'a');
+			reverse_rotate(data, 'a');
 	}
 }

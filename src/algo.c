@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 13:30:00 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:05:54 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,15 @@ void	algo_3case(t_data *data)
 	t_lst	*tmp;
 
 	tmp = data->pile_a;
-	if (is_highest(tmp) == 1)
+	tmp = tmp->next;
+	if (is_pile_sort(data->pile_a) == 1)
+		return ;
+	if (is_highest(data->pile_a) == 1)
 		rotate(data, 'a');
-	else if (ft_compare(tmp, tmp->next) == 1)
+	else if (ft_compare(data->pile_a, tmp) == 1)
 		swap(data, 'a');
+	else if (ft_compare(data->pile_a, tmp->next) == 1)
+		rotate(data, 'a');
 	else
 		reverse_rotate(data, 'a');
 	if (is_pile_sort(data->pile_a) == 0)

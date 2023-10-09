@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:16:14 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 13:51:32 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:31:56 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	is_sort(t_data *data)
 	t_lst	*check;
 
 	check = data->pile_a;
+	if (data->pile_a == NULL || data->pile_b != NULL)
+		return (0);
 	while (check->next)
 	{
 		element = check->next;
@@ -94,8 +96,6 @@ int	ft_is_only_int(char **av)
 
 int	verif(t_data *data)
 {
-	if (is_sort(data) == 1)
-		return (-1);
 	if (is_double_in_lst(data) == 1)
 		return (-1);
 	return (0);
