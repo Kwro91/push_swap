@@ -1,60 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_count.c                                       :+:      :+:    :+:   */
+/*   algo_use_r.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:04:42 by besalort          #+#    #+#             */
-/*   Updated: 2023/09/26 12:28:36 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:32:26 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_count_pile(t_lst *pile)
+int	r_rotate(t_data *data, t_lst *tmp, int indice)
 {
-	int		count;
-	t_lst	*tmp;
+	int	count;
 
 	count = 0;
-	tmp = pile;
-	while (tmp)
+	if (tmp->sort_indice < ft_count_pile(data->pile_a) / 2)
 	{
-		tmp = tmp->next;
-		count++;
+		while (count < indice && count < tmp->sort_indice)
+		{
+			rotate(data, 'r');
+			count++;
+		}
 	}
 	return (count);
 }
 
-int	how_many_inf(t_lst *pile, int value)
+int	r_reverse(t_data *data, t_lst *tmp)
 {
-	t_lst	*tmp;
-	int		count;
+	int	count;
 
 	count = 0;
-	tmp = pile;
-	while (tmp)
+	if (tmp->sort_indice >= ft_count_pile(data->pile_a) / 2)
 	{
-		if (tmp->value < value)
+		while (count < (ft_count_pile(data->pile_a)
+				- tmp->sort_indice) && tmp->indice > 0)
+		{
+			reverse_rotate(data, 'r');
 			count++;
-		tmp = tmp->next;
+		}
 	}
+	count = -(count);
 	return (count);
 }
 
-int	how_many_supp(t_lst *pile, int value)
+int	using_r(t_data *data, int indice)
 {
 	t_lst	*tmp;
 	int		count;
 
 	count = 0;
-	tmp = pile;
-	while (tmp)
-	{
-		if (tmp->value > value)
-			count++;
+	tmp = data->pile_b;
+	while (tmp && tmp->indice != indice)
 		tmp = tmp->next;
+	if (tmp->to_sort == 0 || indice == 0)
+		return (count);
+	if (indice < ft_count_pile(data->pile_b) / 2)
+	{
+		count = r_rotate(data, tmp, indice);
+	}
+	else
+	{
+		count = r_reverse(data, tmp);
 	}
 	return (count);
 }

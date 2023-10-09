@@ -6,27 +6,31 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:15:36 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 11:28:37 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:30:00 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	algo_10case(t_data *data)
+int	chose_fastest(t_data *data)
 {
-	while (ft_count_pile(data->pile_a) != 3)
-		push(data, 'b');
-	algo_3case(data);
-	sort_one_element(data, data->pile_b, 'b');
-	while (ft_count_pile(data->pile_b) != 0)
+	int		indice;
+	int		fastest;
+	t_lst	*tmp;
+
+	indice = 0;
+	fastest = 1000;
+	tmp = data->pile_b;
+	while (tmp)
 	{
-		push(data, 'a');
-		sort_one_element(data, data->pile_a, 'a');
+		if (tmp->to_sort < fastest)
+		{
+			fastest = tmp->to_sort;
+			indice = tmp->indice;
+		}
+		tmp = tmp->next;
 	}
-	while (is_pile_sort(data->pile_a) != 1)
-	{
-		put_right_order(data, data->pile_a, 'a');
-	}
+	return (indice);
 }
 
 void	algo_3case(t_data *data)
@@ -42,18 +46,6 @@ void	algo_3case(t_data *data)
 		reverse_rotate(data, 'a');
 	if (is_pile_sort(data->pile_a) == 0)
 		algo_3case(data);
-}
-
-void	algo_test(t_data *data)
-{
-	push(data, 'b');
-	push(data, 'b');
-	sort_one_element(data, data->pile_b, 'b');
-	while (ft_count_pile(data->pile_a) > 0)
-	{
-		push(data, 'b');
-		sort_one_element(data, data->pile_b, 'b');
-	}
 }
 
 void	algo_final(t_data *data, int elements)

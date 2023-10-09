@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 11:13:13 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 12:08:35 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:12:51 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,19 @@ int	is_lowest(t_lst *pile)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+int	ft_count_pile(t_lst *pile)
+{
+	int		count;
+	t_lst	*tmp;
+
+	count = 0;
+	tmp = pile;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		count++;
+	}
+	return (count);
 }

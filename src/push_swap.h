@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:30:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 11:30:54 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:26:28 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,41 +60,37 @@ int		ft_is_only_number(char **av);
 int		ft_is_only_int(char **av);
 int		verif(t_data *data);
 // ALGO_RE-ORDER.C
-void	put_right_order(t_data *data, t_lst *pile, char c);
-void	put_at_the_start(t_data *data, t_lst *pile, char c, int count);
-void	put_at_the_end(t_data *data, t_lst *pile, char c, int count);
-// ALGO_COUNT.C
-int		ft_count_pile(t_lst *pile);
-int		how_many_inf(t_lst *pile, int value);
-int		how_many_supp(t_lst *pile, int value);
+int		r_rotate(t_data *data, t_lst *tmp, int indice);
+int		r_reverse(t_data *data, t_lst *tmp);
+void	reorder_pile(t_data *data);
+// ALGO_USE_R.C
+int		using_r(t_data *data, int indice);
 // ALGO_SORT_ELEMENT.C
-void	sort_one_element(t_data *data, t_lst *pile, char c);
+void	sort_all(t_data *data);
+void	sort_reverse(t_data *data, int indice);
+void	sort_rotate(t_data *data, int indice);
+void	prepare_to_sort(t_data *data, int indice, int r_done);
 // ALGO_BIS.C
 int		ft_compare(t_lst *first, t_lst *second);
 int		is_pile_sort(t_lst *pile);
 int		is_highest(t_lst *pile);
 int		is_lowest(t_lst *pile);
+int		ft_count_pile(t_lst *pile);
 // ALGO.C
 void	algo(t_data *data);
 void	algo_3case(t_data *data);
-void	algo_10case(t_data *data);
+void	algo_final(t_data *data, int elements);
+int		chose_fastest(t_data *data);
 // UPDATE_INDICE.C
 void	ft_update_indice(t_data *data);
 // ALGO_SORT_INDICE.C
+int		value_of_last(t_lst *pile);
 int		which_highest(t_lst *pile);
 int		which_lowest(t_lst *pile);
 int		indice_sort(t_data *data, int value);
+// ALGO_UPDATE.C
 void	update_all_sort_indice(t_data *data);
 void	update_all_sort_time(t_data *data);
-int		chose_fastest(t_data *data);
-void	prepare_to_sort(t_data *data, int indice, int r_done);
-int		value_of_last(t_lst *pile);
-void	sort_fastest(t_data *data);
-void	reorder_pile(t_data *data);
-void	sort_all(t_data *data);
-void	sort_reverse(t_data *data, int indice);
-void	sort_rotate(t_data *data, int indice);
-int		using_r(t_data *data, int indice);
 // FREE_ALL.C
 void	ft_free_ps(t_data *data);
 void	ft_free_pile(t_lst *pile);

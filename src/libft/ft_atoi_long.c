@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:13:28 by besalort          #+#    #+#             */
-/*   Updated: 2023/08/25 17:14:24 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:37:32 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long int	ft_atoi_long(const char	*str)
 {
-	int	        i;
+	int			i;
+	int			signe;
 	long int	nb;
-	int	        signe;
 
 	i = 0;
 	nb = 0;

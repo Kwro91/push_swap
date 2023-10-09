@@ -6,65 +6,72 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:20:06 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 11:37:27 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:37:00 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_by_rotate(t_data *data, t_lst *pile, char c, int count)
+void	sort_rotate(t_data *data, int indice)
 {
-	if (count == 0)
+	int	count;
+
+	count = 0;
+	if (indice == 0 && is_highest(data->pile_a) == 1)
 		return ;
-	swap(data, c);
-	rotate(data, c);
-	sort_by_rotate(data, pile, c, count - 1);
-	reverse_rotate(data, c);
+	while (count < indice)
+	{
+		rotate(data, 'a');
+		count++;
+	}
 }
 
-void	sort_by_reverse_rotate(t_data *data, t_lst *pile, char c, int count)
+void	sort_reverse(t_data *data, int indice)
 {
-	if (count == 0)
-		return ;
-	reverse_rotate(data, c);
-	swap(data, c);
-	sort_by_reverse_rotate(data, pile, c, count - 1);
-	rotate(data, c);
-	if (count <= 1)
-		rotate(data, c);
+	int	count;
+
+	count = 0;
+	while (count < indice)
+	{
+		reverse_rotate(data, 'a');
+		count++;
+	}
 }
 
-void	rotate_or_reverse_rotate(t_data *data, t_lst *pile, char c)
+void	sort_all(t_data *data)
 {
-	int	rotate;
-	int	reverse_rotate;
+	int		count;
+	t_lst	*tmp;
 
-	rotate = 0;
-	reverse_rotate = 0;
-	rotate = how_many_inf(pile, pile->value);
-	reverse_rotate = how_many_supp(pile, pile->value);
-	if (rotate <= reverse_rotate)
-		sort_by_rotate(data, pile, c, rotate);
-	else
-		sort_by_reverse_rotate(data, pile, c, reverse_rotate);
+	update_all_sort_indice(data);
+	tmp = data->pile_b;
+	count = tmp->sort_indice;
+	if (count != 0 && tmp->sort_indice >= (ft_count_pile(data->pile_a) / 2 - 1))
+	{
+		count = ft_count_pile(data->pile_a) - tmp->sort_indice;
+		sort_reverse(data, count);
+	}
+	else if (count != 0)
+		sort_rotate(data, count);
+	push(data, 'a');
 }
 
-void	sort_one_element(t_data *data, t_lst *pile, char c)
+void	prepare_to_sort(t_data *data, int indice, int r_done)
 {
 	t_lst	*tmp;
-	int		cmp;
 
-	tmp = pile->next;
-	cmp = pile->value;
-	if (is_pile_sort(pile) == 1 || is_lowest(pile) == 1)
-		return ;
-	if (is_highest(pile) == 1)
+	indice = indice - r_done;
+	tmp = data->pile_b;
+	while (tmp && tmp->indice != indice)
+		tmp = tmp->next;
+	if (tmp)
+		tmp->sort_indice = tmp->sort_indice - r_done;
+	if (indice > ft_count_pile(data->pile_b) / 2)
 	{
-		rotate(data, c);
-		return ;
+		while (tmp && tmp->indice != 0)
+			reverse_rotate(data, 'b');
 	}
-	if (cmp < tmp->value)
-		return ;
 	else
-		rotate_or_reverse_rotate(data, pile, c);
+		while (tmp && tmp->indice != 0)
+			rotate(data, 'b');
 }
