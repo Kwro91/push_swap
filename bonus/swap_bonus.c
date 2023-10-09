@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:48:11 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/08 18:20:23 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:54:59 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	swap(t_data	*data, char p)
 	if (p == 'a' && (ft_count_pile(data->pile_a) > 1))
 	{
 		swap_a(data);
-		data->coups++;	
+		data->coups++;
 	}
 	else if (p == 'b' && (ft_count_pile(data->pile_b) > 1))
 	{
 		swap_b(data);
-		data->coups++;	
+		data->coups++;
 	}
 }

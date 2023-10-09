@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:48:04 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/08 18:20:15 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:41:36 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	rotate_b(t_data *data)
 	data->pile_b = data->pile_b->next;
 	element->next = NULL;
 	last->next = element;
-	data->coups++;	
+	data->coups++;
 }
 
 void	rotate(t_data *data, char p)
@@ -48,7 +48,8 @@ void	rotate(t_data *data, char p)
 		rotate_a(data);
 	else if (p == 'b' && (ft_count_pile(data->pile_b) > 1))
 		rotate_b(data);
-	else if (p == 'r' && (ft_count_pile(data->pile_a) > 1 && ft_count_pile(data->pile_b) > 1))
+	else if (p == 'r' && (ft_count_pile(data->pile_a)
+			> 1 && ft_count_pile(data->pile_b) > 1))
 	{
 		rotate_a(data);
 		rotate_b(data);

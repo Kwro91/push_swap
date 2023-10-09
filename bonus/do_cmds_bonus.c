@@ -6,64 +6,64 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:00:28 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/08 17:22:37 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:50:32 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void    is_push(t_data *data, char *cmd)
+void	is_push(t_data *data, char *cmd)
 {
-    if (ft_strncmp("pa\n", cmd, 3) == 0)
-        push(data, 'a');
-    else if (ft_strncmp("pb\n", cmd, 3) == 0)
-        push(data, 'b');
+	if (ft_strncmp("pa\n", cmd, 3) == 0)
+		push(data, 'a');
+	else if (ft_strncmp("pb\n", cmd, 3) == 0)
+		push(data, 'b');
 }
 
-void    is_swap(t_data *data, char *cmd)
+void	is_swap(t_data *data, char *cmd)
 {
-    if (ft_strncmp("sa\n", cmd, 3) == 0)
-        swap(data, 'a');
-    else if (ft_strncmp("sb\n", cmd, 3) == 0)
-        swap(data, 'b');
+	if (ft_strncmp("sa\n", cmd, 3) == 0)
+		swap(data, 'a');
+	else if (ft_strncmp("sb\n", cmd, 3) == 0)
+		swap(data, 'b');
 }
 
-void    is_rotate(t_data *data, char *cmd)
+void	is_rotate(t_data *data, char *cmd)
 {
-    if (ft_strncmp("ra\n", cmd, 3) == 0)
-        rotate(data, 'a');
-    else if (ft_strncmp("rb\n", cmd, 3) == 0)
-        rotate(data, 'b');
-    else if (ft_strncmp("rr\n", cmd, 3) == 0)
-        rotate(data, 'r');
+	if (ft_strncmp("ra\n", cmd, 3) == 0)
+		rotate(data, 'a');
+	else if (ft_strncmp("rb\n", cmd, 3) == 0)
+		rotate(data, 'b');
+	else if (ft_strncmp("rr\n", cmd, 3) == 0)
+		rotate(data, 'r');
 }
 
-void    is_reverse_rotate(t_data *data, char *cmd)
+void	is_reverse_rotate(t_data *data, char *cmd)
 {
-    if (ft_strncmp("rra\n", cmd, 4) == 0)
-        reverse_rotate(data, 'a');
-    else if (ft_strncmp("rrb\n", cmd, 4) == 0)
-        reverse_rotate(data, 'b');
-    else if (ft_strncmp("rrr\n", cmd, 4) == 0)
-        reverse_rotate(data, 'r');
+	if (ft_strncmp("rra\n", cmd, 4) == 0)
+		reverse_rotate(data, 'a');
+	else if (ft_strncmp("rrb\n", cmd, 4) == 0)
+		reverse_rotate(data, 'b');
+	else if (ft_strncmp("rrr\n", cmd, 4) == 0)
+		reverse_rotate(data, 'r');
 }
 
-int    do_cmds(t_data *data)
+int	do_cmds(t_data *data)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (data->cmds[i])
-    {
-        is_push(data, data->cmds[i]);
-        is_rotate(data, data->cmds[i]);
-        is_reverse_rotate(data, data->cmds[i]);
-        is_swap(data, data->cmds[i]);
-        if (ft_strncmp("Error\n", data->cmds[i], 6) == 0)
-            return (-1);
-        i++;
-    }
-    if (is_pile_sort(data->pile_a) == 1 && is_pile_sort(data->pile_b) == 1)
-        return (1);
-    return (0);
+	i = 0;
+	while (data->cmds[i])
+	{
+		is_push(data, data->cmds[i]);
+		is_rotate(data, data->cmds[i]);
+		is_reverse_rotate(data, data->cmds[i]);
+		is_swap(data, data->cmds[i]);
+		if (ft_strncmp("Error\n", data->cmds[i], 6) == 0)
+			return (-1);
+		i++;
+	}
+	if (is_pile_sort(data->pile_a) == 1 && is_pile_sort(data->pile_b) == 1)
+		return (1);
+	return (0);
 }

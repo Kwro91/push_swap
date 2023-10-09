@@ -6,13 +6,11 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:23:44 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/08 18:53:33 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:47:54 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
-
-
 
 t_lst	*create_elements_bonus(int size, char **elements, int indice)
 {
@@ -26,14 +24,15 @@ t_lst	*create_elements_bonus(int size, char **elements, int indice)
 			return (NULL);
 		element->indice = indice;
 		element->value = ft_atoi(elements[0]);
-		element->next = create_elements_bonus(size - 1, &elements[1], indice + 1);
+		element->next = create_elements_bonus(size - 1,
+				&elements[1], indice + 1);
 		if (element->next == NULL && (size -1) > 0)
 			return (free(element), NULL);
 	}
 	return (element);
 }
 
-void    checker_ps(int ac, char **av)
+void	checker_ps(int ac, char **av)
 {
 	t_data	data;
 	int		is_sort;
@@ -57,10 +56,10 @@ void    checker_ps(int ac, char **av)
 	exit(0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac >= 3)
-    	checker_ps(ac, av);
+		checker_ps(ac, av);
 	else
 		ft_printf("Error\n");
 }
