@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:42:38 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 17:23:54 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/12 21:12:27 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ void	push_swap(int ac, char **av)
 	}
 	load(&data, ac, av);
 	if (verif(&data) == -1)
-	{
-		ft_printf("Error\n");
 		return ;
-	}
 	algo(&data);
 	ft_free_ps(&data);
 }
@@ -57,6 +54,4 @@ int	main(int ac, char **av)
 {
 	if (ac >= 3)
 		push_swap(ac, av);
-	else
-		ft_printf("Error\n");
 }

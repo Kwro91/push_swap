@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:23:44 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 13:47:54 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/12 21:14:34 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,4 @@ int	main(int ac, char **av)
 {
 	if (ac >= 3)
 		checker_ps(ac, av);
-	else
-		ft_printf("Error\n");
 }

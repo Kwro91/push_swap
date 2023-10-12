@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:21:25 by besalort          #+#    #+#             */
-/*   Updated: 2023/10/09 15:43:49 by besalort         ###   ########.fr       */
+/*   Updated: 2023/10/12 21:12:41 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ int	verif(t_data *data)
 	if (is_sort(data) == 1)
 		return (-1);
 	if (is_double_in_lst(data) == 1)
+	{
+		ft_printf("Error\n");	
 		return (-1);
+	}
 	return (0);
 }
