@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 16:14:38 by besalort          #+#    #+#              #
-#    Updated: 2023/10/09 13:19:15 by besalort         ###   ########.fr        #
+#    Updated: 2023/10/13 18:28:58 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ LIBFT = $(LIBFT_PATH)libft.a
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 
 AR =  ar rcs
 
